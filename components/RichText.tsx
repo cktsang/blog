@@ -1,0 +1,38 @@
+import dynamic from "next/dynamic";
+const ReactPlayer = dynamic(() => import("react-player/youtube"), {
+  ssr: false,
+});
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+const Lightbox = dynamic(() => import("./lightbox/Lightbox"), {
+  loading: () => <p>Loading image...</p>,
+  ssr: false,
+});
+
+export const CodeBlock = ({ value, lang }: any) => {
+  return (
+    <SyntaxHighlighter language={lang || "jsx"} style={vscDarkPlus}>
+      {value || ""}
+    </SyntaxHighlighter>
+  );
+};
+
+export const BlogImage = ({ image, alt, caption }: any) => {
+  return (
+    <div>
+      <Lightbox
+        gallery={[
+          {
+            image: image,
+            alt: alt,
+          },
+        ]}
+      />
+      <p className="text-center text-sm leading-3 text-gray-700">{caption}</p>
+    </div>
+  );
+};
+
+export const VideoPlayer = ({ url }: any) => {
+  return <ReactPlayer width="100%" controls url={url} />;
+};
