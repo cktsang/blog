@@ -1,15 +1,14 @@
 import Comments from "@/components/posts/Comments";
 import Post from "@/components/posts/Post";
 import client from "@/tina/__generated__/client";
-import { Metadata } from "next";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
-type Props = {
-  params: { slug: string };
-};
-
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const slug = (await params).slug;
   const temp = slug.replace(/^./, (char) => char.toUpperCase());
   const result = temp.split("-").join(" ");
