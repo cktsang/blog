@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-async function PostPage({ params }: { params: { slug: string } }) {
+async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const headerList = headers();
   const pathname = (await headerList).get("x-current-path");
   const category = pathname?.split("/")[1];
