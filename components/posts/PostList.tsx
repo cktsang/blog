@@ -39,7 +39,7 @@ const variants = {
 function PostListComponent(props: PostListComponentProps) {
   const pathname = usePathname()?.split("/")[1] || "";
   const data = props.data;
-  const [postList, setPostList] = useState(data.postConnection.edges);
+  const [postList, setPostList] = useState(data.postConnection.edges || []);
   const [cursor, setCursor] = useState(data.postConnection.pageInfo.endCursor);
   const loadMoreButtonRef = useRef<HTMLDivElement>(null);
   const buttonInView = useInView(loadMoreButtonRef);
