@@ -9,7 +9,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = (await params).slug;
+  const { slug } = await params;
   const temp = slug.replace(/^./, (char) => char.toUpperCase());
   const result = temp.split("-").join(" ");
   const title = result.slice(0, -6);
