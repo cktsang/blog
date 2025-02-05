@@ -24,7 +24,8 @@ async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const headerList = headers();
   const pathname = (await headerList).get("x-current-path");
   const category = pathname?.split("/")[1];
-  const { slug } = await params;
+  const slug = (await params).slug;
+  console.log(slug);
   const result = await client.queries
     .post({
       relativePath: `/${category}/${slug}.mdx`,

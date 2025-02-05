@@ -5,10 +5,6 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   reactStrictMode: false,
-  ignoreDuringBuilds: true,
-  experimental: {
-    scrollRestoration: true,
-  },
 
   images: {
     remotePatterns: [

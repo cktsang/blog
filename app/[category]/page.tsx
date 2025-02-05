@@ -23,9 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const { category } = await params;
+  const category = (await params).category;
+  console.log(category);
   let result: any = [];
   let mapItems: MapItem[] = [];
   let totalCount = 0;
