@@ -9,7 +9,7 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props) {
   const slug = (await params).slug;
   const temp = slug.replace(/^./, (char) => char.toUpperCase());
   const result = temp.split("-").join(" ");
