@@ -120,7 +120,7 @@ function PostListComponent(props: PostListComponentProps) {
     <>
       <section className="z-0 flex flex-col">
         <div className="relative ml-5 space-y-4 border-l-2">
-          {postList?.map((post: any, index) => (
+          {postList?.map((post: any) => (
             <div className="flex w-full flex-row" key={post.node.id}>
               <MotionConfig
                 transition={{

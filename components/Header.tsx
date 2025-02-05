@@ -104,7 +104,7 @@ function Header() {
     }
   });
 
-  function toggleMenu(event: React.MouseEvent<HTMLButtonElement>) {
+  function toggleMenu() {
     setIsMenuOpen((prev) => !prev);
   }
 
