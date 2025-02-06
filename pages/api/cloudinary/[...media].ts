@@ -5,15 +5,15 @@ import {
 
 import { isAuthorized } from "@tinacms/auth";
 
-// export const config = mediaHandlerConfig;
+export const config = mediaHandlerConfig;
 
 export default createMediaHandler({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "",
-  api_key: process.env.CLOUDINARY_API_KEY || "",
-  api_secret: process.env.CLOUDINARY_API_SECRET || "",
-  authorized: async (req, _res) => {
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
+  api_key: process.env.CLOUDINARY_API_KEY!,
+  api_secret: process.env.CLOUDINARY_API_SECRET!,
+  authorized: async (req) => {
     try {
-      if (process.env.NODE_ENV == "development") {
+      if (process.env.NODE_ENV === "development") {
         return true;
       }
 
