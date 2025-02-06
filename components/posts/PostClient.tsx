@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { tinaField, useTina } from "tinacms/dist/react";
 import Activity from "../Activity";
@@ -8,17 +8,17 @@ import { PostQuery } from "@/tina/__generated__/types";
 import { GalleryItem } from "../lightbox/Lightbox";
 
 const PostClient = (props) => {
-  const { data } = useTina<PostQuery>(props)
+  const { data } = useTina<PostQuery>(props);
 
   const galleryItems: GalleryItem[] =
     data.post?.gallery?.flatMap((item) =>
       item?.image
         ? [
-          {
-            image: item.image,
-            alt: item.alt!,
-          },
-        ]
+            {
+              image: item.image,
+              alt: item.alt!,
+            },
+          ]
         : [],
     ) ?? [];
 
@@ -43,8 +43,7 @@ const PostClient = (props) => {
         <LightboxComponent gallery={galleryItems} id={data.post.id} />
       )}
     </>
-  )
-
-}
+  );
+};
 
 export default PostClient;

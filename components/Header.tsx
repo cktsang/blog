@@ -188,7 +188,7 @@ function Header() {
                 duration: 0.3,
                 ease: "easeInOut",
               }}
-              className={`flex h-screen w-full flex-col items-center gap-8 overflow-hidden bg-black pt-10 font-semibold lg:h-fit lg:flex-row lg:bg-transparent lg:pt-0`}
+              className={`scrollbar-hidden flex h-screen w-full flex-col items-center gap-8 overflow-hidden overflow-y-scroll bg-black pb-20 pt-10 font-semibold lg:h-fit lg:flex-row lg:bg-transparent lg:pb-0 lg:pt-0`}
             >
               {links.map((link, index) => {
                 return (

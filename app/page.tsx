@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "CK's Blog",
+  title: "CK's Corner",
 };
 
 export default async function Home() {
@@ -49,7 +49,7 @@ export default async function Home() {
                     </Link>{" "}
                     of the Goblin OST
                   </li>
-                  <li className="list-['\01F3CB'] pl-2">
+                  <li className="list-['\01F3C3'] pl-2">
                     Recovering from a tennis elbow
                   </li>
                   <li className="list-['\01F30D'] pl-2">
