@@ -5,7 +5,7 @@ import {
 
 import { isAuthorized } from "@tinacms/auth";
 
-export const config = mediaHandlerConfig;
+// export const config = mediaHandlerConfig;
 
 export default createMediaHandler({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "",
