@@ -112,7 +112,7 @@ export default async function Page({
               </div>
             )}
 
-            {/* {category === "activities" && (
+            {category === "activities" && (
               <Heatmap
                 days={105}
                 dates={result.data.postConnection.edges?.map((post: any) => ({
@@ -121,7 +121,7 @@ export default async function Page({
                   path: post?.node?._sys.breadcrumbs!,
                 }))}
               />
-            )} */}
+            )}
 
             {result.data?.postConnection.edges.length > 0 ? (
               <PostListComponent {...result} />
