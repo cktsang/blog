@@ -26,7 +26,6 @@ export default async function Page({
   params: Promise<{ category: string }>;
 }) {
   const category = (await params).category;
-  console.log(category);
   let result: any = [];
   let mapItems: MapItem[] = [];
   let totalCount = 0;
