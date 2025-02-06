@@ -11,7 +11,7 @@ export default createMediaHandler({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
   api_key: process.env.CLOUDINARY_API_KEY!,
   api_secret: process.env.CLOUDINARY_API_SECRET!,
-  authorized: async (req, _res) => {
+  authorized: async (req) => {
     try {
       if (process.env.NODE_ENV === "development") {
         return true;
@@ -19,7 +19,7 @@ export default createMediaHandler({
 
       const user = await isAuthorized(req);
 
-      return user?.verified;
+      return !!user?.verified;
     } catch (e) {
       console.error(e);
       return false;
