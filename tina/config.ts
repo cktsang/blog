@@ -184,20 +184,20 @@ export default defineConfig({
                 type: "string",
               },
               {
-                name: "longitude",
-                label: "Longitude",
+                name: "latitude",
+                label: "Latitude",
                 type: "number",
               },
               {
-                name: "latitude",
-                label: "Latitude",
+                name: "longitude",
+                label: "Longitude",
                 type: "number",
               },
             ],
             ui: {
               itemProps: (item) => {
                 return {
-                  label: `${item.name || "Name"}: (${item.longitude || "Longitude"}, ${item.latitude || "Latitude"})`,
+                  label: `${item.name || "Name"}: (${item.latitude || "Latitude"}, ${item.longitude || "Longitude"})`,
                 };
               },
             },
