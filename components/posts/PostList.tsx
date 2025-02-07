@@ -49,7 +49,7 @@ function PostListComponent(props: PostListComponentProps) {
   const [loadMorePosts, setLoadMorePosts] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  console.log(data);
+  console.log(postList);
 
   const getIcon = (titleIcon: string) => {
     switch (titleIcon) {
