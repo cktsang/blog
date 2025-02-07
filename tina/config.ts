@@ -1,5 +1,6 @@
 import { defineConfig } from "tinacms";
 import { richTextComponents } from "./richtext-schema";
+import { notFound } from "next/navigation";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -259,16 +260,17 @@ export default defineConfig({
             if (document._sys.filename) {
               return `/${document._sys.breadcrumbs[0]}/${document._sys.filename}`;
             }
-            return undefined;
+            return notFound();
           },
           filename: {
             slugify: (values) => {
-              const uniqueId = Date.now().toString().slice(-6);
+              // const uniqueId = Date.now().toString().slice(-6);
               const baseSlug = (values.title || "")
                 .toLowerCase()
                 .replace(/ /g, "-")
                 .replace(/[^\w\.\/-\s]/gi, "");
-              return `${baseSlug}-${uniqueId}`;
+              // return `${baseSlug}-${uniqueId}`;
+              return `${baseSlug}`;
             },
           },
         },
