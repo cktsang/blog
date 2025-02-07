@@ -130,7 +130,7 @@ function PostListComponent(props: PostListComponentProps) {
                   ease: "easeInOut",
                 }}
               >
-                <motion.div
+                {/* <motion.div
                   variants={variants}
                   initial={"hidden"}
                   whileInView={"visible"}
@@ -146,7 +146,7 @@ function PostListComponent(props: PostListComponentProps) {
                       month: "short",
                     })}
                   </p>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.div
                   variants={variants}
