@@ -6,6 +6,7 @@ import { montserrat } from "@/app/fonts/fonts";
 import Heatmap from "@/components/Heatmap";
 import type { Metadata } from "next";
 import MapComponent from "@/components/map/MapComponent";
+const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{ category: string }>;

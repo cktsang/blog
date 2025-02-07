@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { inter } from "./fonts/fonts";
 import Providers from "./providers";
-import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -25,10 +24,7 @@ export default function RootLayout({
         <div className="relative h-auto min-h-svh w-full md:space-y-4">
           <Header />
           <main>
-            <Providers>
-              {children}
-              <Analytics />
-            </Providers>
+            <Providers>{children}</Providers>
           </main>
         </div>
       </body>
