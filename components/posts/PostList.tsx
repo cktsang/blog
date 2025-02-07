@@ -251,22 +251,22 @@ function ArticleBody(props: any) {
   const ref = useRef<HTMLDivElement | null>(null!);
   const [showMore, setShowMore] = useState(false);
 
-  useEffect(() => {
-    if (!ref.current) return;
-    if (ref) {
-      const resizeObserver = new ResizeObserver(() => {
-        const height = ref.current?.getBoundingClientRect().height;
+  // useEffect(() => {
+  //   if (!ref.current) return;
+  //   if (ref) {
+  //     const resizeObserver = new ResizeObserver(() => {
+  //       const height = ref.current?.getBoundingClientRect().height;
 
-        height && setShowMore(height > 150);
-      });
+  //       height && setShowMore(height > 150);
+  //     });
 
-      resizeObserver.observe(ref.current);
+  //     resizeObserver.observe(ref.current);
 
-      return () => {
-        resizeObserver.disconnect();
-      };
-    }
-  }, []);
+  //     return () => {
+  //       resizeObserver.disconnect();
+  //     };
+  //   }
+  // }, []);
 
   return (
     <div className={`line-clamp-[10] xl:line-clamp-[8]`}>
@@ -282,7 +282,7 @@ function ArticleBody(props: any) {
             VideoPlayer,
           }}
         />
-        {showMore && (
+        {/* {showMore && (
           <div className="absolute bottom-0 grid h-36 w-full place-items-end justify-items-center bg-gradient-to-b from-transparent via-neutral-50/70 to-neutral-50 pb-10">
             <Link href={`/${props.node.category}/${props.node._sys.filename}`}>
               <button className="rounded-lg border bg-white px-10 py-1 text-base font-bold text-primary shadow-md drop-shadow-md duration-200 ease-in-out hover:text-emerald-700 md:py-2">
@@ -290,7 +290,7 @@ function ArticleBody(props: any) {
               </button>
             </Link>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
