@@ -31,72 +31,72 @@ export default async function Page({
   let totalCount = 0;
   console.log(category);
 
-  // switch (category) {
-  //   case "blog":
-  //     result = await client.queries.postConnection({
-  //       sort: "date",
-  //       last: 10,
-  //     });
-  //     console.log(result);
-  //     break;
+  switch (category) {
+    case "blog":
+      result = await client.queries.postConnection({
+        sort: "date",
+        last: 10,
+      });
+      console.log(result);
+      break;
 
-  //   case "activities":
-  //     result = await client.queries.postConnection({
-  //       sort: "category-date",
-  //       filter: { category: { in: ["activities"] } },
-  //       last: 10,
-  //     });
+    case "activities":
+      result = await client.queries.postConnection({
+        sort: "category-date",
+        filter: { category: { in: ["activities"] } },
+        last: 10,
+      });
 
-  //     const activities = await client.queries.postConnection({
-  //       sort: "category-date",
-  //       filter: { category: { in: ["activities"] } },
-  //     });
+      const activities = await client.queries.postConnection({
+        sort: "category-date",
+        filter: { category: { in: ["activities"] } },
+      });
 
-  //     totalCount = activities.data.postConnection.totalCount;
-  //     console.log(result, activities);
-  //     break;
+      totalCount = activities.data.postConnection.totalCount;
+      console.log(result, activities);
+      break;
 
-  //   case "visits":
-  //     result = await client.queries.postConnection({
-  //       sort: "category-date",
-  //       filter: { category: { in: ["visits"] } },
-  //       last: 10,
-  //     });
+    case "visits":
+      result = await client.queries.postConnection({
+        sort: "category-date",
+        filter: { category: { in: ["visits"] } },
+        last: 10,
+      });
 
-  //     const allVisits = await client.queries.postConnection({
-  //       sort: "category-date",
-  //       filter: { category: { in: ["visits"] } },
-  //     });
+      const allVisits = await client.queries.postConnection({
+        sort: "category-date",
+        filter: { category: { in: ["visits"] } },
+      });
 
-  //     totalCount = allVisits.data.postConnection.totalCount;
+      totalCount = allVisits.data.postConnection.totalCount;
 
-  //     mapItems =
-  //       allVisits.data.postConnection.edges?.flatMap((post) => {
-  //         if (!post?.node?.place?.[0]) return [];
-  //         return [
-  //           {
-  //             title: post.node.place[0].name ?? "",
-  //             position: [
-  //               post.node.place[0].latitude ?? 0,
-  //               post.node.place[0].longitude ?? 0,
-  //             ],
-  //             path: post.node._sys.breadcrumbs,
-  //           },
-  //         ];
-  //       }) ?? [];
+      mapItems =
+        allVisits.data.postConnection.edges?.flatMap((post) => {
+          if (!post?.node?.place?.[0]) return [];
+          return [
+            {
+              title: post.node.place[0].name ?? "",
+              position: [
+                post.node.place[0].latitude ?? 0,
+                post.node.place[0].longitude ?? 0,
+              ],
+              path: post.node._sys.breadcrumbs,
+            },
+          ];
+        }) ?? [];
 
-  //     console.log(result);
-  //     break;
+      console.log(result);
+      break;
 
-  //   case "bookmarks":
-  //     result = await client.queries.postConnection({
-  //       sort: "category-date",
-  //       filter: { category: { in: ["bookmarks"] } },
-  //       last: 10,
-  //     });
-  //     break;
-  //     console.log(result);
-  // }
+    case "bookmarks":
+      result = await client.queries.postConnection({
+        sort: "category-date",
+        filter: { category: { in: ["bookmarks"] } },
+        last: 10,
+      });
+      break;
+      console.log(result);
+  }
 
   return (
     <>

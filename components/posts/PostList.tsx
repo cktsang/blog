@@ -130,23 +130,15 @@ function PostListComponent(props: PostListComponentProps) {
                   ease: "easeInOut",
                 }}
               >
-                {/* <motion.div
+                <motion.div
                   variants={variants}
                   initial={"hidden"}
                   whileInView={"visible"}
                   viewport={{ once: true }}
                   className="sticky top-20 -ml-5 flex h-10 w-10 items-center justify-center rounded-full border bg-white p-4 shadow"
                 >
-                  <p className="text-center text-xs capitalize leading-4">
-                    {DateTime.fromISO(post.node.date).toLocaleString({
-                      day: "numeric",
-                    })}
-                    {<br />}
-                    {DateTime.fromISO(post.node.date).toLocaleString({
-                      month: "short",
-                    })}
-                  </p>
-                </motion.div> */}
+                  <DateComponent data={post.node.date} />
+                </motion.div>
 
                 <motion.div
                   variants={variants}
@@ -246,6 +238,23 @@ function PostListComponent(props: PostListComponentProps) {
 }
 
 export default PostListComponent;
+
+function DateComponent(date: { data: string }) {
+  const dateObj = new Date(date.data);
+  const day = new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+  });
+  const month = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+  });
+  return (
+    <p className="text-center text-xs capitalize leading-4">
+      {day.format(dateObj)}
+      <br />
+      {month.format(dateObj)}
+    </p>
+  );
+}
 
 function ArticleBody(props: any) {
   const ref = useRef<HTMLDivElement | null>(null!);
