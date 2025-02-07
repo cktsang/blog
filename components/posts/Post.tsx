@@ -27,8 +27,8 @@ function Post(props: PostProps) {
                 {
                   title: data.post.place[0]?.name ?? "",
                   position: [
-                    data.post.place[0]?.longitude ?? 0,
                     data.post.place[0]?.latitude ?? 0,
+                    data.post.place[0]?.longitude ?? 0,
                   ],
                   zoom: 18,
                   path: data.post._sys.breadcrumbs,

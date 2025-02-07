@@ -166,8 +166,8 @@ function PostListComponent(props: PostListComponentProps) {
                                 {
                                   title: post.node.place[0].name,
                                   position: [
-                                    post.node.place[0].longitude,
                                     post.node.place[0].latitude,
+                                    post.node.place[0].longitude,
                                   ],
                                   zoom: 10,
                                   path: post.node._sys.breadcrumbs,

@@ -1,11 +1,11 @@
 import Author from "@/components/Author";
 import { MapItem } from "@/components/map/Map";
-import MapView from "@/components/map/MapComponent";
 import PostListComponent from "@/components/posts/PostList";
 import client from "@/tina/__generated__/client";
 import { montserrat } from "@/app/fonts/fonts";
 import Heatmap from "@/components/Heatmap";
 import type { Metadata } from "next";
+import MapComponent from "@/components/map/MapComponent";
 
 type Props = {
   params: Promise<{ category: string }>;
@@ -74,8 +74,8 @@ export default async function Page({
             {
               title: post.node.place[0].name ?? "",
               position: [
-                post.node.place[0].longitude ?? 0,
                 post.node.place[0].latitude ?? 0,
+                post.node.place[0].longitude ?? 0,
               ],
               path: post.node._sys.breadcrumbs,
             },
@@ -107,7 +107,7 @@ export default async function Page({
           <div className="col-span-8 col-start-1 h-fit space-y-8 md:col-span-5 md:col-start-4 md:space-y-12 lg:col-span-4 lg:col-start-3">
             {mapItems?.length > 0 && (
               <div className="h-48 w-full overflow-hidden rounded-xl shadow md:h-52 xl:h-72">
-                <MapView places={mapItems} />
+                <MapComponent places={mapItems} />
               </div>
             )}
 
