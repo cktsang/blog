@@ -264,13 +264,13 @@ export default defineConfig({
           },
           filename: {
             slugify: (values) => {
-              // const uniqueId = Date.now().toString().slice(-6);
+              const uniqueId = Date.now().toString().slice(-6);
               const baseSlug = (values.title || "")
                 .toLowerCase()
                 .replace(/ /g, "-")
                 .replace(/[^\w\.\/-\s]/gi, "");
-              // return `${baseSlug}-${uniqueId}`;
-              return `${baseSlug}`;
+              return `${baseSlug}-${uniqueId}`;
+              // return `${baseSlug}`;
             },
           },
         },
