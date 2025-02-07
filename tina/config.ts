@@ -137,10 +137,6 @@ export default defineConfig({
                 label: "Visits",
               },
               {
-                value: "tutorials",
-                label: "Tutorials",
-              },
-              {
                 value: "bookmarks",
                 label: "bookmarks",
               },
