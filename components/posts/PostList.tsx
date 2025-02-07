@@ -49,6 +49,8 @@ function PostListComponent(props: PostListComponentProps) {
   const [loadMorePosts, setLoadMorePosts] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  console.log(data);
+
   const getIcon = (titleIcon: string) => {
     switch (titleIcon) {
       case "biceps":
