@@ -144,10 +144,6 @@ export default defineConfig({
                 value: "bookmarks",
                 label: "bookmarks",
               },
-              {
-                value: "tutorials",
-                label: "Tutorials",
-              },
             ],
           },
 
