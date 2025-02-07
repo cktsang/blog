@@ -30,6 +30,7 @@ export default async function Page({
   let result: any = [];
   let mapItems: MapItem[] = [];
   let totalCount = 0;
+  console.log(category);
 
   switch (category) {
     case "blog":
@@ -37,6 +38,7 @@ export default async function Page({
         sort: "date",
         last: 10,
       });
+      console.log(result);
       break;
 
     case "activities":
@@ -52,6 +54,7 @@ export default async function Page({
       });
 
       totalCount = activities.data.postConnection.totalCount;
+      console.log(result, activities);
       break;
 
     case "visits":
@@ -82,6 +85,8 @@ export default async function Page({
             },
           ];
         }) ?? [];
+
+      console.log(result);
       break;
 
     case "bookmarks":
@@ -91,6 +96,7 @@ export default async function Page({
         last: 10,
       });
       break;
+      console.log(result);
   }
 
   return (

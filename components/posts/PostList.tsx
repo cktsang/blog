@@ -251,25 +251,25 @@ function ArticleBody(props: any) {
   const ref = useRef<HTMLDivElement | null>(null!);
   const [showMore, setShowMore] = useState(false);
 
-  // useEffect(() => {
-  //   if (!ref.current) return;
-  //   if (ref) {
-  //     const resizeObserver = new ResizeObserver(() => {
-  //       const height = ref.current?.getBoundingClientRect().height;
+  useEffect(() => {
+    if (!ref.current) return;
+    if (ref) {
+      const resizeObserver = new ResizeObserver(() => {
+        const height = ref.current?.getBoundingClientRect().height;
 
-  //       height && setShowMore(height > 150);
-  //     });
+        height && setShowMore(height > 175);
+      });
 
-  //     resizeObserver.observe(ref.current);
+      resizeObserver.observe(ref.current);
 
-  //     return () => {
-  //       resizeObserver.disconnect();
-  //     };
-  //   }
-  // }, []);
+      return () => {
+        resizeObserver.disconnect();
+      };
+    }
+  }, []);
 
   return (
-    <div className={`line-clamp-[10] xl:line-clamp-[8]`}>
+    <div className={`line-clamp-[8]`}>
       <div
         ref={ref}
         className="dark:prose-reverse prose relative text-primary xl:prose-lg prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-a:text-emerald-700 prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-zinc-200 prose-ol:py-1 prose-ul:rounded-lg prose-ul:bg-zinc-200 prose-ul:py-1 prose-li:marker:text-emerald-700"
@@ -282,15 +282,15 @@ function ArticleBody(props: any) {
             VideoPlayer,
           }}
         />
-        {/* {showMore && (
-          <div className="absolute bottom-0 grid h-36 w-full place-items-end justify-items-center bg-gradient-to-b from-transparent via-neutral-50/70 to-neutral-50 pb-10">
+        {showMore && (
+          <div className="absolute bottom-0 grid h-36 w-full place-items-end justify-items-center bg-gradient-to-b from-transparent via-neutral-50/70 to-neutral-50 pb-8">
             <Link href={`/${props.node.category}/${props.node._sys.filename}`}>
               <button className="rounded-lg border bg-white px-10 py-1 text-base font-bold text-primary shadow-md drop-shadow-md duration-200 ease-in-out hover:text-emerald-700 md:py-2">
                 Show More
               </button>
             </Link>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
