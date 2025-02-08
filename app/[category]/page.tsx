@@ -26,77 +26,81 @@ export default async function Page({
   params: Promise<{ category: string }>;
 }) {
   const category = (await params).category;
-  let result: any = [];
-  let mapItems: MapItem[] = [];
-  let totalCount = 0;
-  console.log(category);
+  // let result: any = [];
+  const result = await client.queries.postConnection({
+    sort: "date",
+    last: 10,
+  });
+  // let mapItems: MapItem[] = [];
+  // let totalCount = 0;
+  // console.log(category);
 
-  switch (category) {
-    case "blog":
-      result = await client.queries.postConnection({
-        sort: "date",
-        last: 10,
-      });
-      console.log(result);
-      break;
+  // switch (category) {
+  //   case "blog":
+  //     result = await client.queries.postConnection({
+  //       sort: "date",
+  //       last: 10,
+  //     });
+  //     console.log(result);
+  //     break;
 
-    case "activities":
-      result = await client.queries.postConnection({
-        sort: "category-date",
-        filter: { category: { in: ["activities"] } },
-        last: 10,
-      });
+  //   case "activities":
+  //     result = await client.queries.postConnection({
+  //       sort: "category-date",
+  //       filter: { category: { in: ["activities"] } },
+  //       last: 10,
+  //     });
 
-      const activities = await client.queries.postConnection({
-        sort: "category-date",
-        filter: { category: { in: ["activities"] } },
-      });
+  //     const activities = await client.queries.postConnection({
+  //       sort: "category-date",
+  //       filter: { category: { in: ["activities"] } },
+  //     });
 
-      totalCount = activities.data.postConnection.totalCount;
-      console.log(result, activities);
-      break;
+  //     totalCount = activities.data.postConnection.totalCount;
+  //     console.log(result, activities);
+  //     break;
 
-    case "visits":
-      result = await client.queries.postConnection({
-        sort: "category-date",
-        filter: { category: { in: ["visits"] } },
-        last: 10,
-      });
+  //   case "visits":
+  //     result = await client.queries.postConnection({
+  //       sort: "category-date",
+  //       filter: { category: { in: ["visits"] } },
+  //       last: 10,
+  //     });
 
-      const allVisits = await client.queries.postConnection({
-        sort: "category-date",
-        filter: { category: { in: ["visits"] } },
-      });
+  //     const allVisits = await client.queries.postConnection({
+  //       sort: "category-date",
+  //       filter: { category: { in: ["visits"] } },
+  //     });
 
-      totalCount = allVisits.data.postConnection.totalCount;
+  //     totalCount = allVisits.data.postConnection.totalCount;
 
-      mapItems =
-        allVisits.data.postConnection.edges?.flatMap((post) => {
-          if (!post?.node?.place?.[0]) return [];
-          return [
-            {
-              title: post.node.place[0].name ?? "",
-              position: [
-                post.node.place[0].latitude ?? 0,
-                post.node.place[0].longitude ?? 0,
-              ],
-              path: post.node._sys.breadcrumbs,
-            },
-          ];
-        }) ?? [];
+  //     mapItems =
+  //       allVisits.data.postConnection.edges?.flatMap((post) => {
+  //         if (!post?.node?.place?.[0]) return [];
+  //         return [
+  //           {
+  //             title: post.node.place[0].name ?? "",
+  //             position: [
+  //               post.node.place[0].latitude ?? 0,
+  //               post.node.place[0].longitude ?? 0,
+  //             ],
+  //             path: post.node._sys.breadcrumbs,
+  //           },
+  //         ];
+  //       }) ?? [];
 
-      console.log(result);
-      break;
+  //     console.log(result);
+  //     break;
 
-    case "bookmarks":
-      result = await client.queries.postConnection({
-        sort: "category-date",
-        filter: { category: { in: ["bookmarks"] } },
-        last: 10,
-      });
-      break;
-      console.log(result);
-  }
+  //   case "bookmarks":
+  //     result = await client.queries.postConnection({
+  //       sort: "category-date",
+  //       filter: { category: { in: ["bookmarks"] } },
+  //       last: 10,
+  //     });
+  //     break;
+  //     console.log(result);
+  // }
 
   return (
     <>
@@ -111,13 +115,13 @@ export default async function Page({
             <Author />
           </div>
           <div className="col-span-8 col-start-1 h-fit space-y-8 md:col-span-5 md:col-start-4 md:space-y-12 lg:col-span-4 lg:col-start-3">
-            {mapItems?.length > 0 && (
+            {/* {mapItems?.length > 0 && (
               <div className="h-48 w-full overflow-hidden rounded-xl shadow md:h-52 xl:h-72">
                 <MapComponent places={mapItems} />
               </div>
-            )}
+            )} */}
 
-            {category === "activities" && (
+            {/* {category === "activities" && (
               <Heatmap
                 days={105}
                 dates={result.data.postConnection.edges?.map((post: any) => ({
@@ -126,15 +130,16 @@ export default async function Page({
                   path: post?.node?._sys.breadcrumbs!,
                 }))}
               />
-            )}
+            )} */}
 
-            {result.data?.postConnection.edges.length > 0 ? (
+            {result.data?.postConnection.edges &&
+            result.data?.postConnection.edges.length > 0 ? (
               <PostListComponent {...result} />
             ) : (
               <p className="p-4 text-center text-xl">No Posts Found</p>
             )}
           </div>
-          {totalCount > 0 && (
+          {/* {totalCount > 0 && (
             <div className="sticky top-20 hidden h-36 rounded-xl border bg-neutral-50 shadow lg:col-span-2 lg:col-start-7 lg:block">
               <div className="flex h-full w-full items-center justify-center px-2 xl:px-8">
                 <div className="flex flex-1 flex-col items-center justify-center text-center">
@@ -149,11 +154,9 @@ export default async function Page({
                 </div>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </>
   );
 }
-
-export const dynamic = "force-dynamic";
