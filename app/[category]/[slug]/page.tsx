@@ -2,11 +2,10 @@ import Comments from "@/components/posts/Comments";
 import Post from "@/components/posts/Post";
 import client from "@/tina/__generated__/client";
 import { Metadata } from "next";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: { category: string; slug: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -20,12 +19,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const headerList = headers();
-  const pathname = (await headerList).get("x-current-path");
-  const category = pathname?.split("/")[1];
-  const slug = (await params).slug;
-  console.log(slug);
+export async function generateStaticParams() {
+  const posts = await client.queries.postConnection();
+  return (
+    posts.data.postConnection.edges?.map((post) => ({
+      category: post?.node?.category,
+      slug: post?.node?._sys.filename,
+    })) || []
+  );
+}
+
+async function PostPage({
+  params,
+}: {
+  params: { category: string; slug: string };
+}) {
+  const { category, slug } = params;
+
   const result = await client.queries
     .post({
       relativePath: `/${category}/${slug}.mdx`,
@@ -37,6 +47,7 @@ async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
       console.log(error);
       return notFound();
     });
+
   return (
     <div className="mx-auto mb-4 grid max-w-screen-xl grid-cols-8 gap-4 p-4">
       <div className="col-span-full h-fit md:col-span-6 md:col-start-2 xl:col-span-4 xl:col-start-3">

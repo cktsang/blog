@@ -10,7 +10,7 @@ import MapComponent from "@/components/map/MapComponent";
 export const revalidate = 86400;
 
 type Props = {
-  params: Promise<{ category: string }>;
+  params: { category: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -36,7 +36,7 @@ export default async function Page({
 }: {
   params: { category: string };
 }) {
-  const category = (await params).category;
+  const { category } = params;
   let result: any = [];
   let mapItems: MapItem[] = [];
   let totalCount = 0;

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { montserrat } from "@/app/fonts/fonts";
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

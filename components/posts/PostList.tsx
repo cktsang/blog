@@ -5,7 +5,6 @@ import { PostConnectionQuery } from "@/tina/__generated__/types";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { DateTime } from "luxon";
 import { montserrat } from "@/app/fonts/fonts";
 import { BlogImage, CodeBlock, VideoPlayer } from "../RichText";
 import {
@@ -48,8 +47,6 @@ function PostListComponent(props: PostListComponentProps) {
   );
   const [loadMorePosts, setLoadMorePosts] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  console.log(postList);
 
   const getIcon = (titleIcon: string) => {
     switch (titleIcon) {

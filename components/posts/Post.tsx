@@ -16,7 +16,6 @@ export type PostProps = {
 
 function Post(props: PostProps) {
   const data = props.data;
-  console.log(data);
 
   return (
     <article className="relative overflow-hidden rounded-xl border bg-neutral-50">
