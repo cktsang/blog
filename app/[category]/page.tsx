@@ -7,6 +7,8 @@ import Heatmap from "@/components/Heatmap";
 import type { Metadata } from "next";
 import MapComponent from "@/components/map/MapComponent";
 
+export const revalidate = 86400;
+
 type Props = {
   params: Promise<{ category: string }>;
 };
@@ -147,5 +149,3 @@ export default async function Page({
     </>
   );
 }
-
-export const revalidate = 3600;
