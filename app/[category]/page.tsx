@@ -32,9 +32,9 @@ export async function generateStaticParams() {
 export default async function Page({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const { category } = params;
+  const category = (await params).category;
   let result: any = [];
   let mapItems: MapItem[] = [];
   let totalCount = 0;
@@ -45,7 +45,6 @@ export default async function Page({
         sort: "date",
         last: 10,
       });
-      console.log(result);
       break;
 
     case "activities":
@@ -88,7 +87,6 @@ export default async function Page({
             ];
           }) ?? [];
       }
-      console.log(result);
       break;
   }
 
