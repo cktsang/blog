@@ -7,8 +7,6 @@ import Heatmap from "@/components/Heatmap";
 import type { Metadata } from "next";
 import MapComponent from "@/components/map/MapComponent";
 
-export const revalidate = 86400;
-
 type Props = {
   params: { category: string };
 };
