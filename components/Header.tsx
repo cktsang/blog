@@ -123,7 +123,7 @@ function Header() {
       ref={ref}
     >
       <header
-        className={`relative flex h-full max-w-screen-xl items-center justify-between px-2 md:px-8 lg:mx-auto lg:w-fit lg:justify-center lg:space-x-10 lg:px-0`}
+        className={`relative flex h-full max-w-screen-xl items-center justify-between px-2 md:px-6 lg:mx-auto lg:w-fit lg:justify-center lg:space-x-10 lg:px-0`}
       >
         <Link
           href="/"

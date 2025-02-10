@@ -263,7 +263,7 @@ function ArticleBody(props: any) {
       const resizeObserver = new ResizeObserver(() => {
         const height = ref.current?.getBoundingClientRect().height;
 
-        height && setShowMore(height > 175);
+        height && setShowMore(height > 200);
       });
 
       resizeObserver.observe(ref.current);
@@ -275,7 +275,7 @@ function ArticleBody(props: any) {
   }, []);
 
   return (
-    <div className={`line-clamp-[8]`}>
+    <div className={`line-clamp-[10] lg:line-clamp-[8]`}>
       <div
         ref={ref}
         className="dark:prose-reverse prose relative text-primary xl:prose-lg prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-a:text-emerald-700 prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-zinc-200 prose-ol:py-1 prose-ul:rounded-lg prose-ul:bg-zinc-200 prose-ul:py-1 prose-li:marker:text-emerald-700"
