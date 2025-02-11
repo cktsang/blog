@@ -17,7 +17,7 @@ export type LightboxProps = {
 };
 
 function Lightbox({ gallery, id }: LightboxProps) {
-  const getGridCols = () => {
+  function getGridCols() {
     if (gallery) {
       if (gallery.length === 2) {
         return "grid-cols-2";
@@ -27,7 +27,22 @@ function Lightbox({ gallery, id }: LightboxProps) {
       }
     }
     return;
-  };
+  }
+
+  function getSize() {
+    if (gallery) {
+      if (gallery.length === 1) {
+        return "575";
+      }
+      if (gallery.length === 2) {
+        return "300";
+      }
+      if (gallery.length > 2) {
+        return "175";
+      }
+    }
+    return;
+  }
 
   useEffect(() => {
     GLightbox({
@@ -52,8 +67,8 @@ function Lightbox({ gallery, id }: LightboxProps) {
             <CldImage
               src={img.image}
               alt={img.alt! || img.image.split("/").slice(-1)[0]}
-              width="600"
-              height="600"
+              width={getSize()}
+              height={getSize()}
               className="m-0 aspect-square w-full object-cover duration-300 ease-in hover:scale-105"
               data-gallery={id || img.image}
             />

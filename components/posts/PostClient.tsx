@@ -27,7 +27,7 @@ const PostClient = (props) => {
       <div>
         <h1
           data-tina-field={tinaField(data.post, "title")}
-          className="text-xl font-bold md:text-2xl"
+          className="text-2xl font-bold md:text-3xl"
         >
           {data.post?.title}
         </h1>
