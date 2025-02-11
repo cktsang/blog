@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-const ReactPlayer = dynamic(() => import("react-player/youtube"), {
+const ReactPlayer = dynamic(() => import("react-player"), {
   ssr: false,
 });
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
