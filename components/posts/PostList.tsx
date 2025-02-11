@@ -160,7 +160,7 @@ function PostListComponent(props: PostListComponentProps) {
                                     post.node.place[0].latitude,
                                     post.node.place[0].longitude,
                                   ],
-                                  zoom: 10,
+                                  zoom: 9,
                                   path: post.node._sys.breadcrumbs,
                                 },
                               ]}
