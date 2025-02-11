@@ -40,8 +40,10 @@ function Lightbox({ gallery, id }: LightboxProps) {
       if (gallery.length > 2) {
         return "175";
       }
+    } else {
+      return "600";
     }
-    return;
+    return "600";
   }
 
   useEffect(() => {
