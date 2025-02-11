@@ -255,7 +255,7 @@ function DateComponent(date: { data: string }) {
 
 function ArticleBody(props: any) {
   const ref = useRef<HTMLDivElement | null>(null!);
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(true);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -263,7 +263,7 @@ function ArticleBody(props: any) {
       const resizeObserver = new ResizeObserver(() => {
         const height = ref.current?.getBoundingClientRect().height;
 
-        height && setShowMore(height > 180);
+        height && setShowMore(height > 190);
       });
 
       resizeObserver.observe(ref.current);
