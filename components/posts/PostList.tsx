@@ -259,8 +259,7 @@ function ArticleBody(props: any) {
 
   useEffect(() => {
     if (!ref.current) return;
-    if (ref) {
-      setShowMore(ref.current?.getBoundingClientRect().height > 180);
+    if (ref && props.node.body) {
       const resizeObserver = new ResizeObserver(() => {
         const height = ref.current?.getBoundingClientRect().height;
 
