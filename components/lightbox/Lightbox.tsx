@@ -32,7 +32,7 @@ function Lightbox({ gallery, id }: LightboxProps) {
   function getSize() {
     if (gallery) {
       if (gallery.length === 1) {
-        return "575";
+        return "500";
       }
       if (gallery.length === 2) {
         return "300";
@@ -41,9 +41,9 @@ function Lightbox({ gallery, id }: LightboxProps) {
         return "175";
       }
     } else {
-      return "600";
+      return "500";
     }
-    return "600";
+    return "500";
   }
 
   useEffect(() => {
