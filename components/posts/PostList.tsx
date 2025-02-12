@@ -262,7 +262,6 @@ function ArticleBody(props: any) {
     if (ref) {
       const resizeObserver = new ResizeObserver(() => {
         const height = ref.current?.getBoundingClientRect().height;
-        console.log(height);
         height && setShowMore(height > 200);
       });
 
