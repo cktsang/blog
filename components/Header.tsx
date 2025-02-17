@@ -11,6 +11,7 @@ import {
   MotionConfig,
 } from "motion/react";
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 const links = [
   { href: "/blog", label: "blog" },
@@ -130,7 +131,14 @@ function Header() {
           className="z-50 hover:animate-wave"
           aria-label="Blog homepage"
         >
-          <Logo className="h-12 w-12" />
+          {/* <Logo className="h-12 w-12" /> */}
+          <Image
+            src="/logo.webp"
+            alt="logo"
+            width={50}
+            height={50}
+            className="h-10 w-10"
+          />
         </Link>
 
         <MotionConfig
