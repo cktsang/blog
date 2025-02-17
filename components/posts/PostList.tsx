@@ -168,7 +168,7 @@ function PostListComponent(props: PostListComponentProps) {
                           </div>
                           <div className="-mb-2 mt-2 px-2 md:px-4">
                             <div className="inline-flex items-center space-x-1 text-sm leading-tight text-gray-700">
-                              <MapPin className="h-4 w-4" />
+                              <MapPin className="h-4 w-4 text-emerald-700" />
                               <p>is at</p>
                               <span className="font-semibold">
                                 {post.node.place[0].name}
