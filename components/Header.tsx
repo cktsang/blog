@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Logo from "./ui/logo";
 import {
   motion,
   useScroll,
@@ -131,7 +130,6 @@ function Header() {
           className="z-50 hover:animate-wave"
           aria-label="Blog homepage"
         >
-          {/* <Logo className="h-12 w-12" /> */}
           <Image
             src="/logo.webp"
             alt="logo"
