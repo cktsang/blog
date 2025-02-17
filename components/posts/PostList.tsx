@@ -118,7 +118,7 @@ function PostListComponent(props: PostListComponentProps) {
   return (
     <>
       <section className="z-0 flex flex-col">
-        <div className="relative ml-5 space-y-4 border-l-2">
+        <div className="relative ml-5 space-y-4 border-l-2 pr-2 md:pr-0">
           {postList?.map((post: any) => (
             <div className="flex w-full flex-row" key={post.node.id}>
               <MotionConfig
