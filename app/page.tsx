@@ -18,6 +18,9 @@ export default async function Home() {
   return (
     <>
       <div className="">
+        <div className="block px-4 pt-4 md:hidden md:p-0">
+          <Author />
+        </div>
         <h1
           className={`${montserrat.className} w-full pb-2 pt-4 text-center text-3xl font-bold md:text-6xl`}
         >
@@ -27,7 +30,7 @@ export default async function Home() {
           <div className="sticky top-20 col-start-1 hidden h-fit w-full md:col-span-3 md:block lg:col-span-2">
             <Author />
           </div>
-          <div className="col-span-8 col-start-1 h-fit space-y-8 md:col-span-5 md:col-start-4 md:space-y-12 lg:col-span-4 lg:col-start-3">
+          <div className="col-span-8 col-start-1 h-fit md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-3">
             <PostListComponent {...result} />
           </div>
           <div className="sticky top-20 hidden h-fit rounded-xl border bg-neutral-50 shadow lg:col-span-2 lg:col-start-7 lg:block">
