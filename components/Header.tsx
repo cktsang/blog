@@ -135,7 +135,7 @@ function Header() {
             alt="logo"
             width={50}
             height={50}
-            className="h-10 w-10"
+            className="aspect-square h-10 w-10"
           />
         </Link>
 
