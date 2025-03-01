@@ -59,7 +59,7 @@ function Activity({ workout }: WorkoutProps) {
       {workout.map((exercise, index) => {
         return (
           <div key={index} className="flex w-full">
-            <div className="!sticky top-20 -ml-3 mt-4 grid h-6 w-6 place-items-center rounded-full border bg-white text-center">
+            <div className="-ml-3 mt-4 grid h-6 w-6 place-items-center rounded-full border bg-white text-center">
               <p className="text-xs">{index + 1}</p>
             </div>
             <Exercise exercise={exercise} />
