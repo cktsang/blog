@@ -27,7 +27,7 @@ function Exercise({ exercise }: { exercise: WorkoutItem }) {
         className="flex w-full justify-between"
         onClick={() => setIsOpen((open) => !open)}
       >
-        <p className="text-balance text-start">{exercise.name}</p>
+        <p className="text-balance text-start font-medium">{exercise.name}</p>
         <ChevronDown
           className={`${isOpen ? "rotate-180" : ""} h-6 w-6 min-w-fit duration-300 ease-in-out`}
         />
