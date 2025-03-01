@@ -6,6 +6,7 @@ import { montserrat } from "@/app/fonts/fonts";
 import Heatmap from "@/components/Heatmap";
 import type { Metadata } from "next";
 import MapComponent from "@/components/map/MapComponent";
+import { Link } from "next-transition-router";
 
 type Props = {
   params: { category: string };
@@ -127,17 +128,42 @@ export default async function Page({
             )}
           </div>
           {totalCount > 0 && (
-            <div className="sticky top-20 hidden h-36 rounded-xl border bg-neutral-50 shadow lg:col-span-2 lg:col-start-7 lg:block">
+            <div className="sticky top-20 hidden h-fit rounded-xl border bg-neutral-50 p-4 shadow lg:col-span-2 lg:col-start-7 lg:block">
               <div className="flex h-full w-full items-center justify-center px-2 xl:px-8">
                 <div className="flex flex-1 flex-col items-center justify-center text-center">
-                  <p className="text-balance text-sm italic leading-5 text-gray-700">
+                  <p className="text-balance italic leading-5 text-gray-700">
                     {category === "activities"
                       ? "Activities completed:"
                       : category === "visits"
                         ? "Places visited around the world:"
                         : ""}
                   </p>
-                  <p className="leading- text-4xl font-bold">{totalCount}</p>
+                  <p className="mt-2 text-4xl font-bold">{totalCount}</p>
+                  {category === "activities" && (
+                    <div>
+                      <p className="mt-2 text-balance text-sm italic text-gray-700">
+                        Highlights:
+                      </p>
+                      <ol className="leading-5">
+                        <li>
+                          <Link
+                            href="/activities/rotterdam-marathon-10k-841971"
+                            className="text-sm"
+                          >
+                            Rotterdam 10K
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/activities/park-run-pr-340793"
+                            className="text-sm"
+                          >
+                            Park Run PR
+                          </Link>
+                        </li>
+                      </ol>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
