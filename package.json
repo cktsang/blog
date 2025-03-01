@@ -24,7 +24,7 @@
     "next": "^14.2.23",
     "next-cloudinary": "^6.16.0",
     "next-sitemap": "^4.2.3",
-    "next-tinacms-cloudinary": "^12.0.3",
+    "next-tinacms-cloudinary": "^13.0.2",
     "next-transition-router": "^0.2.7",
     "react": "^18.3.1",
     "react-calendar-heatmap": "^1.9.0",
@@ -36,11 +36,11 @@
     "react-tooltip": "^5.28.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "tinacms": "^2.6.3"
+    "tinacms": "^2.7.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
-    "@tinacms/cli": "^1.8.2",
+    "@tinacms/cli": "^1.9.2",
     "@types/leaflet": "^1.9.16",
     "@types/luxon": "^3.4.2",
     "@types/node": "^20.17.17",

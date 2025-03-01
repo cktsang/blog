@@ -36,11 +36,11 @@ function Author() {
           <p className="text-xs text-gray-700 md:text-sm">
             Front-end Developer
           </p>
-          <p className="pt-2 md:pt-4">
+          <p className="py-2 md:py-4">
             Learn more <Link href="/about">about me</Link>.
           </p>
-          <p className="pt-2 text-xs md:pt-4 md:text-sm">
-            <MapPin className="inline h-4 w-4" /> Utrecht, The Netherlands
+          <p className="flex items-center text-xs text-gray-700 md:justify-center md:text-sm">
+            <MapPin className="mr-1 inline h-4 w-4" /> Utrecht, The Netherlands
           </p>
         </div>
       </div>
