@@ -144,20 +144,14 @@ export default async function Page({
                       <p className="mt-2 text-balance text-sm italic text-gray-700">
                         Highlights:
                       </p>
-                      <ol className="leading-5">
+                      <ol className="text-sm leading-5">
                         <li>
-                          <Link
-                            href="/activities/rotterdam-marathon-10k-841971"
-                            className="text-sm"
-                          >
+                          <Link href="/activities/rotterdam-marathon-10k-841971">
                             Rotterdam 10K
                           </Link>
                         </li>
                         <li>
-                          <Link
-                            href="/activities/park-run-pr-340793"
-                            className="text-sm"
-                          >
+                          <Link href="/activities/park-run-pr-340793">
                             Park Run PR
                           </Link>
                         </li>

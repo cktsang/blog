@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
+import { motion } from "motion/react";
 import { useState } from "react";
 
 export type WorkoutItem = {
@@ -21,18 +22,25 @@ function Exercise({ exercise }: { exercise: WorkoutItem }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="ml-2 flex w-full flex-col justify-center space-y-4 overflow-hidden rounded-xl bg-[#2E8B57]/20 p-4">
-      <div
-        className="flex cursor-pointer justify-between"
+    <div className="ml-2 flex w-full flex-col justify-center overflow-hidden rounded-xl bg-[#2E8B57]/20 p-4">
+      <button
+        className="flex w-full justify-between"
         onClick={() => setIsOpen((open) => !open)}
       >
-        <p>{exercise.name}</p>
+        <p className="text-balance text-start">{exercise.name}</p>
         <ChevronDown
-          className={`${isOpen ? "rotate-180" : ""} duration-300 ease-in-out`}
+          className={`${isOpen ? "rotate-180" : ""} h-6 w-6 min-w-fit duration-300 ease-in-out`}
         />
-      </div>
-      <div
-        className={`${isOpen ? "block h-auto" : "hidden h-0"} flex flex-col space-y-4 duration-300 ease-in-out`}
+      </button>
+      <motion.div
+        initial={false}
+        animate={
+          isOpen
+            ? { height: "auto", marginTop: "1rem", opacity: 1 }
+            : { height: 0, opacity: 0 }
+        }
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="flex flex-col space-y-4 overflow-hidden"
       >
         {exercise.sets.map((set, index) => {
           return (
@@ -48,7 +56,7 @@ function Exercise({ exercise }: { exercise: WorkoutItem }) {
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }
