@@ -39,7 +39,7 @@ function Exercise({ exercise }: { exercise: WorkoutItem }) {
             ? { height: "auto", marginTop: "1rem", opacity: 1 }
             : { height: 0, opacity: 0 }
         }
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="flex flex-col space-y-4 overflow-hidden"
       >
         {exercise.sets.map((set, index) => {
