@@ -185,7 +185,7 @@ function PostListComponent(props: PostListComponentProps) {
                       >
                         {post.node.titleIcon && getIcon(post.node.titleIcon)}
                         <h2
-                          className={`${montserrat.className} text-hover-green text-xl font-bold xl:text-2xl`}
+                          className={`${montserrat.className} text-xl font-bold xl:text-2xl`}
                         >
                           {post.node.title}
                         </h2>
