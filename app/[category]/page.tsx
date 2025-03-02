@@ -141,10 +141,10 @@ export default async function Page({
                   <p className="mt-2 text-4xl font-bold">{totalCount}</p>
                   {category === "activities" && (
                     <div>
-                      <p className="mt-2 text-balance text-sm italic text-gray-700">
+                      <p className="mt-2 text-sm font-medium italic">
                         Highlights:
                       </p>
-                      <ol className="text-sm leading-5">
+                      <ol className="text-sm leading-5 text-gray-700">
                         <li>
                           <Link href="/activities/rotterdam-marathon-10k-841971">
                             Rotterdam 10K
