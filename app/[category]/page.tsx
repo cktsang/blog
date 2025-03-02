@@ -103,7 +103,7 @@ export default async function Page({
           <div className="sticky top-20 col-start-1 hidden h-fit w-full md:col-span-3 md:block lg:col-span-2">
             <Author />
           </div>
-          <div className="col-span-8 col-start-1 h-fit space-y-8 md:col-span-5 md:col-start-4 md:space-y-12 lg:col-span-4 lg:col-start-3">
+          <div className="col-span-8 col-start-1 h-fit space-y-8 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-3">
             {mapItems?.length > 0 && (
               <div className="h-48 w-full overflow-hidden rounded-xl shadow md:h-52 xl:h-72">
                 <MapComponent places={mapItems} />
