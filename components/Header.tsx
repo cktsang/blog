@@ -116,7 +116,7 @@ function Header() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{
-        duration: 0.3,
+        duration: 0.5,
         ease: "easeInOut",
       }}
       className="sticky top-0 z-50 h-14 w-full border-b backdrop-blur-sm"
