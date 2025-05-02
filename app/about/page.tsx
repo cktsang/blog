@@ -20,7 +20,7 @@ function page() {
             alt="profile picture"
             width={400}
             height={400}
-            className="z-50 m-0 mx-auto aspect-square size-72 border-8 border-white bg-white object-cover object-center pb-8 shadow-md drop-shadow-md md:size-80 md:rotate-6 md:shadow-lg md:drop-shadow-md lg:size-96"
+            className="z-50 m-0 mx-auto aspect-square min-h-72 w-full min-w-72 border-8 border-white bg-white object-cover object-center pb-8 shadow-md drop-shadow-md md:size-80 md:rotate-6 md:shadow-lg md:drop-shadow-md lg:size-96"
             priority
             quality={100}
           />
@@ -29,7 +29,7 @@ function page() {
             alt="profile picture"
             width={400}
             height={400}
-            className="z-50 m-0 mx-auto hidden aspect-square size-72 -rotate-6 border-8 border-white bg-white object-cover object-center pb-8 shadow-lg drop-shadow-md md:block md:size-80 lg:size-96"
+            className="z-50 m-0 mx-auto hidden aspect-square -rotate-6 border-8 border-white bg-white object-cover object-center pb-8 shadow-lg drop-shadow-md md:block md:size-80 lg:size-96"
             priority
             quality={100}
           />
