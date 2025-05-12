@@ -145,39 +145,43 @@ function PostListComponent(props: PostListComponentProps) {
                   className="w-full"
                 >
                   <article className="relative z-30 ml-2 min-h-24 flex-1 overflow-hidden rounded-xl border bg-neutral-50 shadow md:ml-4">
-                    {post.node.place && (
-                      <>
-                        <Link
-                          className="cursor-pointer"
-                          href={`/${post.node.category}/${post.node._sys.filename}`}
-                        >
-                          <div className="pointer-events-none m-0 h-20 w-full lg:h-28">
-                            <MapComponent
-                              places={[
-                                {
-                                  title: post.node.place[0].name,
-                                  position: [
-                                    post.node.place[0].latitude,
-                                    post.node.place[0].longitude,
-                                  ],
-                                  zoom: 10,
-                                  path: post.node._sys.breadcrumbs,
-                                },
-                              ]}
-                            />
-                          </div>
-                          <div className="-mb-2 mt-2 px-2 md:px-4">
-                            <div className="inline-flex items-center space-x-1 text-sm leading-tight text-gray-700">
-                              <MapPin className="h-4 w-4 text-emerald-700" />
-                              <p>is at</p>
-                              <span className="font-semibold">
-                                {post.node.place[0].name}
-                              </span>
+                    {post.node.place &&
+                      post.node.place[0].latitude > 0 &&
+                      post.node.place[0].longitude > 0 && (
+                        <>
+                          <Link
+                            className="cursor-pointer"
+                            href={`/${post.node.category}/${post.node._sys.filename}`}
+                          >
+                            <div className="pointer-events-none m-0 h-20 w-full lg:h-28">
+                              <MapComponent
+                                places={[
+                                  {
+                                    title: post.node.place[0].name,
+                                    position: [
+                                      post.node.place[0].latitude,
+                                      post.node.place[0].longitude,
+                                    ],
+                                    zoom: 10,
+                                    path: post.node._sys.breadcrumbs,
+                                  },
+                                ]}
+                              />
                             </div>
-                          </div>
-                        </Link>
-                      </>
-                    )}
+                            {post.node.place[0].name && (
+                              <div className="-mb-2 mt-2 px-2 md:px-4">
+                                <div className="inline-flex items-center space-x-1 text-sm leading-tight text-gray-700">
+                                  <MapPin className="h-4 w-4 text-emerald-700" />
+                                  <p>is at</p>
+                                  <span className="font-semibold">
+                                    {post.node.place[0].name}
+                                  </span>
+                                </div>
+                              </div>
+                            )}
+                          </Link>
+                        </>
+                      )}
                     <div className="space-y-4 overflow-hidden p-4">
                       <Link
                         href={`/${post.node.category}/${post.node._sys.filename}`}
