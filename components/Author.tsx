@@ -32,7 +32,7 @@ function Author() {
 
       <div className="flex-1">
         <div className="md:px-4 md:pb-4 md:pt-8 md:text-center">
-          <p className="text-lg font-semibold md:text-xl">Chikin Tsang</p>
+          <p className="text-lg font-semibold md:text-xl">Chi Kin Tsang</p>
           <p className="text-xs text-gray-700 md:text-sm">
             Front-end Developer
           </p>

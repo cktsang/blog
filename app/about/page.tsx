@@ -39,7 +39,7 @@ function page() {
             <h2 className="text-2xl font-bold leading-10 lg:text-4xl">
               你好!
               <span className="inline-block animate-wave delay-200">👋</span>
-              I'm Chikin Tsang.
+              I'm Chi Kin Tsang.
             </h2>
             <p>
               I'm a front-end web developer from the Netherlands with a passion
