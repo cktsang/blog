@@ -280,7 +280,7 @@ function ArticleBody(props: any) {
   return (
     <div
       ref={ref}
-      className="dark:prose-reverse prose relative line-clamp-[10] text-primary xl:prose-lg prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-a:text-emerald-700 prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-zinc-200 prose-ol:py-1 prose-ul:rounded-lg prose-ul:bg-zinc-200 prose-ul:py-1 prose-li:marker:text-emerald-700 lg:line-clamp-[8]"
+      className="dark:prose-reverse prose relative line-clamp-[10] text-primary xl:prose-lg prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-a:text-emerald-700 prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-[#2E8B57]/20 prose-ol:py-1 prose-ul:rounded-lg prose-ul:bg-[#2E8B57]/20 prose-ul:py-1 prose-li:marker:text-emerald-700 lg:line-clamp-[8]"
     >
       <TinaMarkdown
         content={props.node.body}
