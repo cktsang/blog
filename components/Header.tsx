@@ -119,7 +119,7 @@ function Header() {
         duration: 0.5,
         ease: "easeInOut",
       }}
-      className="sticky top-0 z-50 h-14 w-full border-b backdrop-blur-sm"
+      className="sticky top-0 z-50 h-14 w-full border-b bg-white/65 backdrop-blur-sm"
       ref={ref}
     >
       <header
