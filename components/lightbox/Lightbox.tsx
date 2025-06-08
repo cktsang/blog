@@ -14,9 +14,10 @@ export type GalleryItem = {
 export type LightboxProps = {
   gallery?: GalleryItem[];
   id?: string;
+  square?: boolean;
 };
 
-function Lightbox({ gallery, id }: LightboxProps) {
+function Lightbox({ gallery, id, square }: LightboxProps) {
   function getGridCols() {
     if (gallery) {
       if (gallery.length === 2) {
@@ -26,7 +27,7 @@ function Lightbox({ gallery, id }: LightboxProps) {
         return "grid-cols-3";
       }
     }
-    return;
+    return "";
   }
 
   function getSize() {
@@ -61,17 +62,17 @@ function Lightbox({ gallery, id }: LightboxProps) {
       {gallery &&
         gallery.map((img, key) => (
           <Link
-            href={img.image}
+            href={img.image || ""}
             className="glightbox overflow-hidden"
             key={key}
             data-gallery={id || img.image}
           >
             <CldImage
               src={img.image}
-              alt={img.alt! || img.image.split("/").slice(-1)[0]}
+              alt={img.alt! || img.image?.split("/").slice(-1)[0] || ""}
               width={getSize()}
               height={getSize()}
-              className="m-0 aspect-square w-full object-cover duration-300 ease-in hover:scale-105"
+              className={`m-0 ${square ? "aspect-square" : "aspect-auto"} w-full object-cover duration-300 ease-in hover:scale-105`}
               data-gallery={id || img.image}
             />
           </Link>

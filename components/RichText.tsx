@@ -19,20 +19,26 @@ export const CodeBlock = ({ value, lang }: any) => {
 
 export const BlogImage = ({ image, alt, caption }: any) => {
   return (
-    <div>
-      <Lightbox
-        gallery={[
-          {
-            image: image,
-            alt: alt,
-          },
-        ]}
-      />
-      <p className="text-center text-sm leading-3 text-gray-700">{caption}</p>
-    </div>
+    image && (
+      <>
+        <Lightbox
+          gallery={[
+            {
+              image: image,
+              alt: alt,
+            },
+          ]}
+        />
+        {caption && (
+          <p className="text-center text-sm leading-3 text-gray-700">
+            {caption}
+          </p>
+        )}
+      </>
+    )
   );
 };
 
 export const VideoPlayer = ({ url }: any) => {
-  return <ReactPlayer width="100%" controls url={url} />;
+  return url && <ReactPlayer width="100%" controls url={url} />;
 };

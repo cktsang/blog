@@ -9,6 +9,7 @@ export const richTextComponents: Template[] = [
         name: "image",
         label: "Image",
         type: "image",
+        required: true,
       },
       {
         name: "alt",

@@ -15,7 +15,7 @@ function LightboxComponent({ gallery, id }: LightboxProps) {
   );
   return (
     <div className="h-full w-full">
-      <Lightbox gallery={gallery} id={id} />
+      <Lightbox gallery={gallery} id={id} square />
     </div>
   );
 }

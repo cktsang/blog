@@ -142,7 +142,6 @@ export default defineConfig({
               },
             ],
           },
-
           {
             name: "gallery",
             label: "Image Gallery",
