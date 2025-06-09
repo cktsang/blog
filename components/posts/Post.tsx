@@ -43,7 +43,7 @@ function Post(props: PostProps) {
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="flex items-center justify-start space-x-2 text-sm leading-6 text-gray-700">
               <Calendar size={16} className="-mr-1" />
-              <p data-tina-field={tinaField(data.post, "date")} className="">
+              <p data-tina-field={tinaField(data.post, "date")}>
                 {DateTime.fromISO(data.post?.date).toLocaleString({
                   day: "numeric",
                   month: "long",
