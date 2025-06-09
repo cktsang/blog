@@ -34,7 +34,7 @@ const PostClient = (props) => {
       </div>
       <section
         data-tina-field={tinaField(data.post, "body")}
-        className="dark:prose-reverse prose text-primary xl:prose-lg prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-a:text-emerald-700 prose-blockquote:border-emerald-700 prose-blockquote:text-lg prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-[#2E8B57]/20 prose-ol:py-1 prose-ul:rounded-lg prose-ul:bg-[#2E8B57]/20 prose-ul:py-1 prose-li:marker:text-emerald-700 prose-blockquote:lg:text-xl"
+        className="dark:prose-reverse prose text-primary xl:prose-lg prose-h1:text-2xl prose-h2:my-0 prose-h2:text-xl prose-h3:text-lg prose-a:text-emerald-700 prose-blockquote:border-emerald-700 prose-blockquote:text-lg prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-[#2E8B57]/20 prose-ol:py-1 prose-ul:rounded-lg prose-ul:bg-[#2E8B57]/20 prose-ul:py-1 prose-li:marker:text-emerald-700 prose-img:m-0 prose-blockquote:lg:text-xl"
       >
         <PostBody body={data.post?.body} />
       </section>
