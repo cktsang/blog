@@ -2,7 +2,7 @@
 
 import React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { BlogImage, CodeBlock, VideoPlayer } from "../RichText";
+import { BlogImage, CodeBlock, VideoPlayer, MP4Video } from "../RichText";
 
 function PostBody({ body }: { body: any }) {
   return (
@@ -12,6 +12,7 @@ function PostBody({ body }: { body: any }) {
         code_block: CodeBlock,
         BlogImage,
         VideoPlayer,
+        MP4Video,
       }}
     />
   );

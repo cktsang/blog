@@ -31,6 +31,24 @@ export const richTextComponents: Template[] = [
     },
   },
   {
+    name: "MP4Video",
+    label: "MP4 Video",
+    fields: [
+      {
+        name: "video",
+        label: "Video",
+        type: "image",
+      },
+    ],
+    ui: {
+      itemProps: (item) => {
+        return {
+          label: item?.video,
+        };
+      },
+    },
+  },
+  {
     name: "VideoPlayer",
     label: "VideoPlayer",
     fields: [

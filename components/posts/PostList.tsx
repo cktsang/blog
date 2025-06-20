@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { montserrat } from "@/app/fonts/fonts";
-import { BlogImage, CodeBlock, VideoPlayer } from "../RichText";
+import { BlogImage, CodeBlock, VideoPlayer, MP4Video } from "../RichText";
 import {
   MapPin,
   BicepsFlexed,
@@ -288,6 +288,7 @@ function ArticleBody(props: any) {
           code_block: CodeBlock,
           BlogImage,
           VideoPlayer,
+          MP4Video,
         }}
       />
       {showMore && (

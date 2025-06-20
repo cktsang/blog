@@ -39,6 +39,16 @@ export const BlogImage = ({ image, alt, caption }: any) => {
   );
 };
 
+export const MP4Video = ({ video }: any) => {
+  return (
+    video && (
+      <video loop autoPlay playsInline muted>
+        <source src={video} type="video/mp4" />
+      </video>
+    )
+  );
+};
+
 export const VideoPlayer = ({ url }: any) => {
   return url && <ReactPlayer width="100%" controls url={url} />;
 };
