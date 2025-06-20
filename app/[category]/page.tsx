@@ -94,6 +94,9 @@ export default async function Page({
   return (
     <>
       <div className="">
+        <div className="block px-4 pt-4 md:hidden md:p-0">
+          <Author />
+        </div>
         <h1
           className={`${montserrat.className} w-full pb-2 pt-4 text-center text-3xl font-bold capitalize md:text-6xl`}
         >
