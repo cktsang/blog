@@ -104,6 +104,7 @@ export default defineConfig({
               "ul",
               "ol",
               "quote",
+              "code",
               "codeBlock",
               "embed",
               "raw",
