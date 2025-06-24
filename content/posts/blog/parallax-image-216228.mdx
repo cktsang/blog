@@ -13,5 +13,62 @@ Recently, I've been seeing this parallax effect being used quite often on Wordpr
 First, we will be creating our project and installing some packages.
 
 * Let's start with creating our app using NextJS by running `npx create-next-app@latest` in the terminal.
-* Next we install the [Motion](https://motion.dev/docs/react-quick-start) library by running `npm i motion`.
-* We will be using [Lenis](https://github.com/darkroomengineering/lenis/blob/main/README.md) to enable smooth scrolling for a better user experience by running `npm i lenis`.
+* Next, for handling the animations we'll install the [Motion](https://motion.dev/docs/react-quick-start) library by running `npm i motion`.
+* We will be using [Lenis](https://github.com/darkroomengineering/lenis/blob/main/README.md) scroll to enable smooth scroll animations by running `npm i lenis`.
+
+## Creating the layout
+
+We create a list of images which we'll be using for the project.
+
+```javascript
+const images = [
+  {
+    name: "London",
+    src: "/london.jpg",
+  },
+  {
+    name: "Paris",
+    src: "/paris.jpg",
+  },
+  {
+    name: "Tokyo",
+    src: "/tokyo.jpg",
+  },
+];
+```
+
+Next we render the images from the list.
+
+```javascript
+<div className="relative w-full p-4 bg-neutral-50">
+  <div className="flex justify-center items-center h-[60vh]">
+    <h1 className="text-6xl md:text-9xl font-bold uppercase text-neutral-900">
+      Parallax demo
+    </h1>
+  </div>
+  <div className="space-y-4">
+    {images &&
+      images.map((image, index) => (
+        <ParallaxImage key={index} name={image.name} src={image.src} />
+      ))}
+  </div>
+  <div className="h-[60vh]" />
+</div>
+```
+
+## Animating the Parallax Image
+
+First, we create a ref for the container of the image. We'll set it as the target for the useScroll hook from Motion to track its vertical progress within the viewport.
+
+Next, we specify the offset. It describes the points in which the target intersects with the viewport. 
+
+```javascript
+const ref = useRef();
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ["start end", "end start"],
+});
+```
+
+* "start end" means the intersection in which the top ("start") of the target element meets the bottom ("end") of the viewport. It describes the place where the element first enters the screen.
+* "end start" means the intersection in which the bottom ("end") of the target meets the top ("start") of the viewport. It's the place where the target element leaves the screen.
