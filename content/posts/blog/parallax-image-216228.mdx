@@ -72,17 +72,17 @@ const { scrollYProgress } = useScroll({
 
 * **"start end"** means the intersection in which the *top ("start")* of the target element meets the *bottom ("end")* of the viewport. It describes the place where the element first enters the screen.
 * **"end start"** means the intersection in which the *bottom ("end")* of the target meets the *top ("start")* of the viewport. It's the place where the target element leaves the screen.
-* The **scrollYProgress** value ranges from 0 to 1 with "0" being the moment the target element first enters the viewport and "1" the moment right before the element leaves the viewport. 
+* The **scrollYProgress** value ranges from 0 to 1 with "0" being the moment the target element first enters the viewport and "1" the moment right before the element leaves the viewport.
 
-With the useTransform hook from Motion we can transform the scrollYProgress values into other motion values.
+With the **useTransform hook** from Motion we can transform the scrollYProgress values into other motion values.
 
 ```javascript
 const imageY = useTransform(scrollYProgress, [0, 1], ["-250px", "0px"]);
 const textY = useTransform(scrollYProgress, [0, 1], ["0px", "-250px"]);
 ```
 
-* The value for imageY will be -250 pixels when the value for scrollYProgress is at "0" and 0 pixels when the value of scrollYProgress is at "1". The hook will take care of all the values in between these two numbers. This means the image will be shifted down by -250 pixels when it first enters the viewport and it will move up as the user continues to scroll down.
-* We do the opposite for textY to create a second layer for the parallax effect.
+* The value for **imageY** will be -250 pixels when the value for scrollYProgress is at "0" and 0 pixels when the value of scrollYProgress is at "1". The hook will take care of all the values in between these two numbers. This means the image will be shifted down by -250 pixels when it first enters the viewport and it will move up as the user continues to scroll down.
+* We do the opposite for** textY** to create a second layer for the parallax effect.
 
 Let's put it all together and create the component.
 
@@ -120,6 +120,8 @@ function ParallaxImage({ name, src, index }) {
 }
 ```
 
-* To apply the animation to an element, we have to change it to a motion component. \<img> turns into \<motion.img> and \<h1> turns into \<motion.h1>. Then we can access the style and customize it with our motion value.
+* To apply the animation to an element, we have to change it to a **motion component**. `<img>` turns into `<motion.img>` and `<h1>` turns into `<motion.h1>`. Then we can access the style and customize it with our motion value.
 
 The end result will look like this:
+
+<MP4Video video="https://res.cloudinary.com/di81zcvbz/video/upload/v1750542891/Blog/Parallax_Image_Small_yrpvdt.mp4" />
