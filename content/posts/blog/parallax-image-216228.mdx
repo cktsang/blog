@@ -58,7 +58,7 @@ Next we render the images from the list.
 
 ## Animating the Parallax Image
 
-First, we create a ref for the container of the image. We'll set it as the target for the useScroll hook from Motion to track its vertical progress within the viewport.
+First, we create a ref for the container of the image. We'll set it as the target for the **useScroll hook** from Motion to track its vertical progress within the viewport.
 
 Next, we specify the offset. It describes the points in which the target intersects with the viewport.
 
@@ -82,7 +82,7 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0px", "-250px"]);
 ```
 
 * The value for **imageY** will be -250 pixels when the value for scrollYProgress is at "0" and 0 pixels when the value of scrollYProgress is at "1". The hook will take care of all the values in between these two numbers. This means the image will be shifted down by -250 pixels when it first enters the viewport and it will move up as the user continues to scroll down.
-* We do the opposite for** textY** to create a second layer for the parallax effect.
+* We do the opposite for\*\* textY\*\* to create a second layer for the parallax effect.
 
 Let's put it all together and create the component.
 
