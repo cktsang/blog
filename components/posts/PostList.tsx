@@ -122,7 +122,7 @@ function PostListComponent(props: PostListComponentProps) {
       <section className="z-0 flex flex-col">
         <div className="relative ml-5 space-y-4 border-l-2 pr-2 md:pr-0">
           {postList?.map((post: any) => (
-            <div className="flex w-full flex-row" key={post.node.id}>
+            <div className="flex w-full" key={post.node.id}>
               <MotionConfig
                 transition={{
                   duration: 0.3,
@@ -265,7 +265,7 @@ function ArticleBody(props: any) {
 
   const CodeBlock = ({ value, lang }: any) => {
     return (
-      <div className="max-w-[300px]">
+      <div className="hidden">
         <SyntaxHighlighter language={lang || "jsx"} style={vscDarkPlus}>
           {value || ""}
         </SyntaxHighlighter>
