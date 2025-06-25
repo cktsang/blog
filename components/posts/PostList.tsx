@@ -6,7 +6,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { montserrat } from "@/app/fonts/fonts";
-import { BlogImage, CodeBlock, VideoPlayer, MP4Video } from "../RichText";
+import { BlogImage, VideoPlayer, MP4Video } from "../RichText";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import {
   MapPin,
   BicepsFlexed,
@@ -260,6 +262,16 @@ function DateComponent(date: { data: string }) {
 function ArticleBody(props: any) {
   const ref = useRef<HTMLDivElement | null>(null!);
   const [showMore, setShowMore] = useState(false);
+
+  const CodeBlock = ({ value, lang }: any) => {
+    return (
+      <div className="max-w-[300px]">
+        <SyntaxHighlighter language={lang || "jsx"} style={vscDarkPlus}>
+          {value || ""}
+        </SyntaxHighlighter>
+      </div>
+    );
+  };
 
   useEffect(() => {
     if (!ref.current) return;
