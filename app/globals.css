@@ -98,7 +98,7 @@ body {
 
 @layer base {
   * {
-    @apply border-slate-200;
+    @apply border-neutral-200 dark:border-neutral-700;
   }
 
   a {
@@ -116,7 +116,7 @@ body {
   }
 
   .text-hover-green {
-    @apply duration-300 ease-in-out hover:text-emerald-700;
+    @apply duration-300 ease-in-out hover:text-emerald-700 dark:hover:text-emerald-400;
   }
 
   tr,
