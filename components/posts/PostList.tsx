@@ -292,7 +292,7 @@ function ArticleBody(props: any) {
   return (
     <div
       ref={ref}
-      className="dark:prose-reverse prose relative line-clamp-[10] min-w-full text-primary xl:prose-lg prose-h1:text-2xl prose-h2:my-0 prose-h2:text-xl prose-h3:text-lg prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-[#2E8B57]/20 prose-ol:py-1 prose-ol:pr-4 prose-ul:rounded-lg prose-ul:bg-[#2E8B57]/20 prose-ul:py-1 prose-ul:pr-4 prose-li:marker:text-emerald-700 prose-img:m-0 dark:text-neutral-50 dark:prose-headings:text-neutral-50 dark:prose-strong:text-white dark:prose-code:text-white dark:prose-li:marker:text-emerald-400 lg:line-clamp-[8]"
+      className="dark:prose-reverse prose relative line-clamp-[10] min-w-full text-primary xl:prose-lg prose-h1:text-2xl prose-h2:my-0 prose-h2:text-xl prose-h3:text-lg prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-[#2E8B57]/20 prose-ol:py-1 prose-ol:pr-4 prose-ul:rounded-lg prose-ul:bg-[#2E8B57]/20 prose-ul:py-1 prose-ul:pr-4 prose-li:marker:text-emerald-700 prose-img:m-0 dark:text-neutral-50 dark:prose-headings:text-neutral-50 dark:prose-a:text-neutral-50 dark:prose-strong:text-white dark:prose-code:text-white dark:prose-li:marker:text-emerald-400 lg:line-clamp-[8]"
     >
       <TinaMarkdown
         content={props.node.body}
