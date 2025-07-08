@@ -18,7 +18,7 @@ function Post(props: PostProps) {
   const data = props.data;
 
   return (
-    <article className="relative overflow-hidden rounded-xl border bg-neutral-50">
+    <article className="relative overflow-hidden rounded-xl border bg-neutral-50 dark:bg-neutral-800">
       {data.post?.place && (
         <div className="m-0 h-32">
           {data.post?.place && (
@@ -41,7 +41,7 @@ function Post(props: PostProps) {
       <div className="space-y-4 p-4">
         <div className="space-y-2 border-b pb-2">
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="flex items-center justify-start space-x-2 text-sm leading-6 text-gray-700">
+            <div className="flex items-center justify-start space-x-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
               <Calendar size={16} className="-mr-1" />
               <p data-tina-field={tinaField(data.post, "date")}>
                 {DateTime.fromISO(data.post?.date).toLocaleString({
@@ -60,7 +60,7 @@ function Post(props: PostProps) {
               </Link>
             </div>
             {data.post?.place && (
-              <div className="inline-flex items-center space-x-1 text-sm leading-tight text-gray-700">
+              <div className="inline-flex items-center space-x-1 text-sm leading-tight text-gray-700 dark:text-gray-300">
                 <MapPin className="h-4 w-4" />
                 <p>is at</p>
                 <span className="font-semibold">

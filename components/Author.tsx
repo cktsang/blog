@@ -5,7 +5,7 @@ import { Link } from "next-transition-router";
 
 function Author() {
   return (
-    <div className="flex h-full w-full flex-row gap-4 overflow-hidden rounded-xl border bg-neutral-50 p-4 shadow md:flex-col md:p-0">
+    <div className="flex h-full w-full flex-row gap-4 overflow-hidden rounded-xl border bg-neutral-50 p-4 shadow dark:bg-neutral-800 md:flex-col md:p-0">
       <Image
         src="/hongkong.jpg"
         alt="profile background"
@@ -33,7 +33,7 @@ function Author() {
       <div className="flex-1">
         <div className="md:px-4 md:pb-4 md:pt-8 md:text-center">
           <p className="text-lg font-semibold md:text-xl">Chi Kin Tsang</p>
-          <p className="text-xs text-gray-700 md:text-sm">
+          <p className="text-xs text-gray-700 dark:text-gray-300 md:text-sm">
             Front-end Developer
           </p>
           <p className="py-2 md:py-4">
@@ -43,7 +43,7 @@ function Author() {
             </Link>
             .
           </p>
-          <p className="flex items-center text-xs text-gray-700 md:justify-center md:text-sm">
+          <p className="flex items-center text-xs text-gray-700 dark:text-gray-300 md:justify-center md:text-sm">
             <MapPin className="mr-1 inline h-4 w-4" /> Utrecht, The Netherlands
           </p>
           <div className="mt-2 inline-flex space-x-2">

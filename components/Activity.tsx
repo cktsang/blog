@@ -48,7 +48,7 @@ function Exercise({ exercise }: { exercise: WorkoutItem }) {
               key={index}
               className="inline-flex items-center space-x-2 text-sm md:text-base"
             >
-              <div className="grid h-5 w-5 place-items-center rounded-full bg-white text-center text-xs">
+              <div className="grid h-5 w-5 place-items-center rounded-full bg-white text-center text-xs dark:bg-neutral-900">
                 {index + 1}
               </div>
               {set.reps && <p>{set.reps} reps</p>}
@@ -67,7 +67,7 @@ function Activity({ workout }: WorkoutProps) {
       {workout.map((exercise, index) => {
         return (
           <div key={index} className="flex w-full">
-            <div className="-ml-3 mt-4 grid h-6 w-6 place-items-center rounded-full border bg-white text-center">
+            <div className="-ml-3 mt-4 grid h-6 w-6 place-items-center rounded-full border bg-white text-center dark:bg-neutral-900">
               <p className="text-xs">{index + 1}</p>
             </div>
             <Exercise exercise={exercise} />

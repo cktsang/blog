@@ -33,7 +33,7 @@ export default async function Home() {
           <div className="col-span-8 col-start-1 h-fit md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-3">
             <PostListComponent {...result} />
           </div>
-          <div className="sticky top-20 hidden h-fit rounded-xl border bg-neutral-50 shadow lg:col-span-2 lg:col-start-7 lg:block">
+          <div className="sticky top-20 hidden h-fit rounded-xl border bg-neutral-50 shadow dark:bg-neutral-800 lg:col-span-2 lg:col-start-7 lg:block">
             <div className="flex h-full w-full items-center justify-center p-4">
               <div className="flex w-fit flex-col space-y-4">
                 <h3 className="text-lg font-medium leading-normal">

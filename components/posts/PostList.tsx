@@ -134,7 +134,7 @@ function PostListComponent(props: PostListComponentProps) {
                   initial={"hidden"}
                   whileInView={"visible"}
                   viewport={{ once: true }}
-                  className="sticky top-20 -ml-5 flex h-10 w-10 items-center justify-center rounded-full border bg-white p-4 shadow"
+                  className="sticky top-20 -ml-5 flex h-10 w-10 items-center justify-center rounded-full border bg-white p-4 shadow dark:bg-neutral-800"
                 >
                   <DateComponent data={post.node.date} />
                 </motion.div>
@@ -146,7 +146,7 @@ function PostListComponent(props: PostListComponentProps) {
                   viewport={{ once: true }}
                   className="w-full"
                 >
-                  <article className="relative z-30 ml-2 min-h-24 flex-1 overflow-hidden rounded-xl border bg-neutral-50 shadow md:ml-4">
+                  <article className="relative z-30 ml-2 min-h-24 flex-1 overflow-hidden rounded-xl border bg-neutral-50 shadow dark:bg-neutral-800 md:ml-4">
                     {post.node.place &&
                       post.node.place[0].latitude > 0 &&
                       post.node.place[0].longitude > 0 && (
@@ -172,8 +172,8 @@ function PostListComponent(props: PostListComponentProps) {
                             </div>
                             {post.node.place[0].name && (
                               <div className="-mb-2 mt-2 px-2 md:px-4">
-                                <div className="inline-flex items-center space-x-1 text-sm leading-tight text-gray-700">
-                                  <MapPin className="h-4 w-4 text-emerald-700" />
+                                <div className="inline-flex items-center space-x-1 text-sm leading-tight text-gray-700 dark:text-gray-300">
+                                  <MapPin className="h-4 w-4" />
                                   <p>is at</p>
                                   <span className="font-semibold">
                                     {post.node.place[0].name}
@@ -292,7 +292,7 @@ function ArticleBody(props: any) {
   return (
     <div
       ref={ref}
-      className="dark:prose-reverse prose relative line-clamp-[10] text-primary xl:prose-lg prose-h1:text-2xl prose-h2:my-0 prose-h2:text-xl prose-h3:text-lg prose-a:text-emerald-700 prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-[#2E8B57]/20 prose-ol:py-1 prose-ol:pr-4 prose-ul:rounded-lg prose-ul:bg-[#2E8B57]/20 prose-ul:py-1 prose-ul:pr-4 prose-li:marker:text-emerald-700 prose-img:m-0 lg:line-clamp-[8]"
+      className="dark:prose-reverse prose relative line-clamp-[10] min-w-full text-primary xl:prose-lg prose-h1:text-2xl prose-h2:my-0 prose-h2:text-xl prose-h3:text-lg prose-blockquote:border-emerald-700 prose-blockquote:text-gray-700 prose-ol:rounded-xl prose-ol:bg-[#2E8B57]/20 prose-ol:py-1 prose-ol:pr-4 prose-ul:rounded-lg prose-ul:bg-[#2E8B57]/20 prose-ul:py-1 prose-ul:pr-4 prose-li:marker:text-emerald-700 prose-img:m-0 dark:text-neutral-50 dark:prose-headings:text-neutral-50 dark:prose-strong:text-white dark:prose-code:text-white dark:prose-li:marker:text-emerald-400 lg:line-clamp-[8]"
     >
       <TinaMarkdown
         content={props.node.body}
@@ -304,9 +304,9 @@ function ArticleBody(props: any) {
         }}
       />
       {showMore && (
-        <div className="absolute bottom-0 grid h-36 w-full place-items-end justify-items-center bg-gradient-to-b from-transparent via-neutral-50/70 to-neutral-50 pb-8">
+        <div className="absolute bottom-0 grid h-36 w-full place-items-end justify-items-center bg-gradient-to-b from-transparent via-neutral-50/70 to-neutral-50 pb-8 dark:via-neutral-800/70 dark:to-neutral-800">
           <Link href={`/${props.node.category}/${props.node._sys.filename}`}>
-            <button className="rounded-lg border bg-white px-10 py-1 text-base font-bold text-primary shadow-md drop-shadow-md duration-200 ease-in-out hover:text-emerald-700 md:py-2">
+            <button className="rounded-lg border bg-white px-10 py-1 text-base font-bold text-primary shadow-md drop-shadow-md duration-200 ease-in-out hover:text-emerald-700 dark:bg-neutral-950 dark:hover:text-emerald-400 md:py-2">
               Show More
             </button>
           </Link>

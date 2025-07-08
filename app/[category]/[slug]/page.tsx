@@ -50,7 +50,7 @@ async function PostPage({
 
   return (
     <div className="mx-auto mb-4 grid max-w-screen-xl grid-cols-8 gap-4 p-4">
-      <div className="col-span-full h-fit md:col-span-6 md:col-start-2 xl:col-span-4 xl:col-start-3">
+      <div className="col-span-full h-fit lg:col-span-6 lg:col-start-2 xl:col-span-4 xl:col-start-3">
         <Post {...result} />
         <Comments />
       </div>

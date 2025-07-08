@@ -131,10 +131,10 @@ export default async function Page({
             )}
           </div>
           {totalCount > 0 && (
-            <div className="sticky top-20 hidden h-fit rounded-xl border bg-neutral-50 p-4 shadow lg:col-span-2 lg:col-start-7 lg:block">
+            <div className="sticky top-20 hidden h-fit rounded-xl border bg-neutral-50 p-4 shadow dark:bg-neutral-800 lg:col-span-2 lg:col-start-7 lg:block">
               <div className="flex h-full w-full items-center justify-center px-2 xl:px-8">
                 <div className="flex flex-1 flex-col items-center justify-center text-center">
-                  <p className="text-balance italic leading-5 text-gray-700">
+                  <p className="text-balance italic leading-5 text-gray-700 dark:text-gray-300">
                     {category === "activities"
                       ? "Activities completed:"
                       : category === "visits"
@@ -147,7 +147,7 @@ export default async function Page({
                       <p className="mt-2 text-sm font-medium italic">
                         Highlights:
                       </p>
-                      <ol className="text-sm leading-5 text-gray-700">
+                      <ol className="text-sm leading-5 text-gray-700 dark:text-gray-300">
                         <li>
                           <Link href="/activities/rotterdam-marathon-10k-841971">
                             Rotterdam 10K
