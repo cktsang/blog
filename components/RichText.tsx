@@ -30,7 +30,7 @@ export const BlogImage = ({ image, alt, caption }: any) => {
           ]}
         />
         {caption && (
-          <p className="text-center text-sm leading-3 text-gray-700">
+          <p className="text-center text-sm leading-3 text-gray-700 dark:text-gray-300">
             {caption}
           </p>
         )}
