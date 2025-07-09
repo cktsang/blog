@@ -114,6 +114,7 @@ function Header() {
 
   function toggleTheme() {
     setTheme(theme === "dark" ? "light" : "dark");
+    toggleMenu();
   }
 
   return (
@@ -225,10 +226,10 @@ function Header() {
                   variant={isMobile ? "outline" : "ghost"}
                   onClick={toggleTheme}
                   size="icon"
-                  className="hover:text-hover-green size-12 bg-transparent text-xl text-white hover:bg-transparent lg:text-black dark:lg:text-white"
+                  className="size-12 bg-transparent text-white hover:bg-transparent hover:text-yellow-500 dark:hover:text-yellow-500 lg:text-black dark:lg:text-white"
                 >
-                  <Sun className="hidden min-h-8 min-w-8 dark:block lg:min-h-5 lg:min-w-5" />
-                  <Moon className="block min-h-8 min-w-8 dark:hidden lg:min-h-5 lg:min-w-5" />
+                  <Sun className="hidden min-h-8 min-w-8 dark:block lg:min-h-6 lg:min-w-6" />
+                  <Moon className="block min-h-8 min-w-8 dark:hidden lg:min-h-6 lg:min-w-6" />
                   <span className="sr-only">Toggle Theme</span>
                 </Button>
               </li>
