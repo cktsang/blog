@@ -42,7 +42,7 @@ export const BlogImage = ({ image, alt, caption }: any) => {
 export const MP4Video = ({ video }: any) => {
   return (
     video && (
-      <video loop autoPlay playsInline muted>
+      <video loop autoPlay playsInline muted controls>
         <source src={video} type="video/mp4" />
       </video>
     )
