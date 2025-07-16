@@ -52,7 +52,7 @@ function Post(props: PostProps) {
               </p>
               <span>|</span>
               <Link
-                className="text-hover-green capitalize"
+                className="text-hover-green capitalize no-underline"
                 data-tina-field={tinaField(data.post, "category")}
                 href={`/${data.post?.category}`}
               >

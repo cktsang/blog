@@ -1,5 +1,13 @@
 import Comments from "@/components/posts/Comments";
 import Post from "@/components/posts/Post";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import client from "@/tina/__generated__/client";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -50,6 +58,30 @@ async function PostPage({
 
   return (
     <div className="mx-auto mb-4 grid max-w-screen-xl grid-cols-8 gap-4 p-4">
+      <div className="col-span-full lg:col-start-2 xl:col-start-3">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/" className="no-underline">
+                Home
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink
+                href={`/${category}`}
+                className="capitalize no-underline"
+              >
+                {category}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{result.data.post.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
       <div className="col-span-full h-fit lg:col-span-6 lg:col-start-2 xl:col-span-4 xl:col-start-3">
         <Post {...result} />
         <Comments />
