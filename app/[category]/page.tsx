@@ -26,6 +26,7 @@ export async function generateStaticParams() {
     { category: "blog" },
     { category: "activities" },
     { category: "visits" },
+    { category: "technology" },
     { category: "bookmarks" },
   ];
 }
