@@ -11,7 +11,6 @@ import {
 } from "motion/react";
 import React, { useState, useRef, useEffect } from "react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
 
@@ -19,6 +18,7 @@ const links = [
   { href: "/blog", label: "blog" },
   { href: "/activities", label: "activities" },
   { href: "/visits", label: "visits" },
+  { href: "/technology", label: "technology" },
   { href: "/bookmarks", label: "bookmarks" },
   { href: "/about", label: "about" },
 ];

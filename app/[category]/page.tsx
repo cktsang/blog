@@ -50,6 +50,7 @@ export default async function Page({
 
     case "activities":
     case "visits":
+    case "technology":
     case "bookmarks":
       result = await client.queries.postConnection({
         sort: "category-date",

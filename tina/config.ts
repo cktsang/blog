@@ -139,6 +139,10 @@ export default defineConfig({
                 label: "Visits",
               },
               {
+                value: "technology",
+                label: "Technology",
+              },
+              {
                 value: "bookmarks",
                 label: "bookmarks",
               },
