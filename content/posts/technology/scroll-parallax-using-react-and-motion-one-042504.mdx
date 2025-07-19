@@ -1,0 +1,131 @@
+---
+title: Scroll Parallax using React and Motion One
+date: 2025-06-22T16:00:00.000Z
+category: technology
+---
+
+Recently, I've been seeing this parallax effect being used quite often on Wordpress websites. Let's recreate this subtle parallax effect using React and Motion One.
+
+<MP4Video video="https://res.cloudinary.com/di81zcvbz/video/upload/v1750542891/Blog/Parallax_Image_Small_yrpvdt.mp4" />
+
+## Initializing the project
+
+First, we will be creating our project and installing some packages.
+
+* Let's start with creating our app using NextJS by running `npx create-next-app@latest` in the terminal.
+* Next, for handling the animations we'll install the [Motion](https://motion.dev/docs/react-quick-start) library by running `npm i motion`.
+* We will be using [Lenis](https://github.com/darkroomengineering/lenis/blob/main/README.md) scroll to enable smooth scroll animations by running `npm i lenis`.
+
+## Creating the layout
+
+We create a list of images which we'll be using for the project.
+
+```javascript
+const images = [
+  {
+    name: "London",
+    src: "/london.jpg",
+  },
+  {
+    name: "Paris",
+    src: "/paris.jpg",
+  },
+  {
+    name: "Tokyo",
+    src: "/tokyo.jpg",
+  },
+];
+```
+
+Next we render the images from the list.
+
+```javascript
+<div className="relative w-full p-4 bg-neutral-50">
+  <div className="flex justify-center items-center h-[60vh]">
+    <h1 className="text-6xl md:text-9xl font-bold uppercase text-neutral-900">
+      Parallax demo
+    </h1>
+  </div>
+  <div className="space-y-4">
+    {images &&
+      images.map((image, index) => (
+        <ParallaxImage key={index} name={image.name} src={image.src} />
+      ))}
+  </div>
+  <div className="h-[60vh]" />
+</div>
+```
+
+## Animating the Parallax Image
+
+First, we create a ref for the container of the image. We'll set it as the target for the **useScroll hook** from Motion to track its vertical progress within the viewport.
+
+Next, we specify the offset. It describes the points in which the target intersects with the viewport.
+
+```javascript
+const ref = useRef();
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ["start end", "end start"],
+});
+```
+
+* **"start end"** means the intersection in which the *top ("start")* of the target element meets the *bottom ("end")* of the viewport. It describes the place where the element first enters the screen.
+* **"end start"** means the intersection in which the *bottom ("end")* of the target meets the *top ("start")* of the viewport. It's the place where the target element leaves the screen.
+* The **scrollYProgress** value ranges from 0 to 1 with "0" being the moment the target element first enters the viewport and "1" the moment right before the element leaves the viewport.
+
+With the **useTransform hook** from Motion we can transform the scrollYProgress values into other motion values.
+
+```javascript
+const imageY = useTransform(scrollYProgress, [0, 1], ["-250px", "0px"]);
+const textY = useTransform(scrollYProgress, [0, 1], ["0px", "-250px"]);
+```
+
+* The value for **imageY** will be -250 pixels when the value for scrollYProgress is at "0" and 0 pixels when the value of scrollYProgress is at "1". The hook will take care of all the values in between these two numbers. This means the image will be shifted down by -250 pixels when it first enters the viewport and it will move up as the user continues to scroll down.
+* We do the opposite for **textY** to create a second layer for the parallax effect.
+
+Let's put it all together and create the component.
+
+```javascript
+function ParallaxImage({ name, src, index }) {
+  const ref = useRef();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-250px", "0px"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0px", "-250px"]);
+
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden h-screen"
+      key={index}
+      ref={ref}
+    >
+      <motion.img
+        src={src}
+        alt="image"
+        className="object-cover w-full h-[125%] brightness-75 object-top"
+        style={{ y: imageY }}
+      />
+      <motion.h1
+        style={{ y: textY }}
+        className="text-6xl md:text-[12rem] font-bold uppercase place-self-center absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 "
+      >
+        {name}
+      </motion.h1>
+    </div>
+  );
+}
+```
+
+* To apply the animation to an element, we have to change it to a **motion component**. `<img>` turns into `<motion.img>` and `<h1>` turns into `<motion.h1>`. We can then access the style and customize it with our motion value.
+
+```javascript
+style = {{ y: imageY }}
+```
+
+The end result will look like this:
+
+<MP4Video video="https://res.cloudinary.com/di81zcvbz/video/upload/v1750542891/Blog/Parallax_Image_Small_yrpvdt.mp4" />
