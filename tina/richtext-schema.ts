@@ -40,13 +40,6 @@ export const richTextComponents: Template[] = [
         type: "image",
       },
     ],
-    ui: {
-      itemProps: (item) => {
-        return {
-          label: item?.video,
-        };
-      },
-    },
   },
   {
     name: "VideoPlayer",
@@ -58,12 +51,5 @@ export const richTextComponents: Template[] = [
         type: "string",
       },
     ],
-    ui: {
-      itemProps: (item) => {
-        return {
-          label: item?.url,
-        };
-      },
-    },
   },
 ];
