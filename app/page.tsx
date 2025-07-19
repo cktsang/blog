@@ -42,7 +42,7 @@ export default async function Home() {
                 <ol className="space-y-2 pl-4 text-base">
                   <li className="list-['\01F4BB'] pl-2">
                     Learning React, Tailwind and{" "}
-                    <Link href="https://motion.dev/">Motion</Link>
+                    <Link href="https://motion.dev/">Motion One</Link>
                   </li>
 
                   <li className="list-['\01F3B9'] pl-2">
