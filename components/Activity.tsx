@@ -26,37 +26,42 @@ function Exercise({ exercise }: { exercise: WorkoutItem }) {
       <button
         className="flex w-full justify-between"
         onClick={() => setIsOpen((open) => !open)}
+        disabled={!exercise.sets}
       >
         <p className="text-balance text-start font-medium">{exercise.name}</p>
-        <ChevronDown
-          className={`${isOpen ? "rotate-180" : ""} h-6 w-6 min-w-fit duration-300 ease-in-out`}
-        />
+        {exercise.sets && (
+          <ChevronDown
+            className={`${isOpen ? "rotate-180" : ""} h-6 w-6 min-w-fit duration-300 ease-in-out`}
+          />
+        )}
       </button>
-      <motion.div
-        initial={false}
-        animate={
-          isOpen
-            ? { height: "auto", marginTop: "1rem", opacity: 1 }
-            : { height: 0, opacity: 0 }
-        }
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="flex flex-col space-y-4 overflow-hidden"
-      >
-        {exercise.sets.map((set, index) => {
-          return (
-            <div
-              key={index}
-              className="inline-flex items-center space-x-2 text-sm md:text-base"
-            >
-              <div className="grid h-5 w-5 place-items-center rounded-full bg-white text-center text-xs dark:bg-neutral-900">
-                {index + 1}
+      {exercise.sets && (
+        <motion.div
+          initial={false}
+          animate={
+            isOpen
+              ? { height: "auto", marginTop: "1rem", opacity: 1 }
+              : { height: 0, opacity: 0 }
+          }
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="flex flex-col space-y-4 overflow-hidden"
+        >
+          {exercise.sets.map((set, index) => {
+            return (
+              <div
+                key={index}
+                className="inline-flex items-center space-x-2 text-sm md:text-base"
+              >
+                <div className="grid h-5 w-5 place-items-center rounded-full bg-white text-center text-xs dark:bg-neutral-900">
+                  {index + 1}
+                </div>
+                {set.reps && <p>{set.reps} reps</p>}
+                {set.weight && <p> + {set.weight} kg</p>}
               </div>
-              {set.reps && <p>{set.reps} reps</p>}
-              {set.weight && <p> + {set.weight} kg</p>}
-            </div>
-          );
-        })}
-      </motion.div>
+            );
+          })}
+        </motion.div>
+      )}
     </div>
   );
 }
