@@ -1,0 +1,66 @@
+---
+title: Creating Custom Rich-Text Components using TinaCMS
+date: 2025-06-01T10:00:00.000Z
+category: technology
+---
+
+Tina's rich-text editor comes out of the box with a lot of useful options to spice up the blog posts, like inserting code blocks and images to the post. I've been wanting to add MP4 videos to my posts, but it's lacking that feature by default. Luckily, it's easy to extend it with custom rich-text components. Here's how to do it.
+
+## Creating the component
+
+Let's start with creating the MP4 video player component using React.
+
+```javascript
+export const MP4Video = ( src ) => {
+  return (
+    video && (
+      <video loop autoPlay playsInline muted controls>
+        <source src={ src } type="video/mp4" />
+      </video>
+    )
+  );
+};
+```
+
+* To make the videos automatically play, it is required for them to be muted.
+* `playsInline` is needed to make it play automatically in mobile browsers, because the default behaviour is to have the video be paused until the user plays the video, which opens it fullscreen.
+* Add controls for accessibility to give the user the option to pause the video.
+
+Next, to extend the rich-text editor, you have to add the custom component to the TinaMarkdown component which renders the body.
+
+```javascript
+<TinaMarkdown
+  content={ body }
+  components={{ MP4Video }}
+/>
+```
+
+Finally, add it to Tina's config.ts file as a template.
+
+```typescript
+{
+  name: "body",
+    label: "Body",
+      type: "rich-text",
+        isBody: true,
+          templates: [
+            {
+              name: "MP4Video",
+              label: "MP4 Video",
+              fields: [
+                {
+                  name: "video",
+                  label: "Video",
+                  type: "image",
+                },
+              ],
+            },
+          ], 
+}
+```
+
+* Use `type: "image"` to make use of Tina's image field for handling the media selection and uploads.
+
+Now you should be able to embed MP4 videos to your blog posts:
+
+![TinaCMS's editor](https://res.cloudinary.com/di81zcvbz/image/upload/v1752967900/Technology/embed_MP4_TinaCMS_py2avh.png)
