@@ -1,0 +1,91 @@
+---
+title: Infinite Marquee using React and Motion One
+date: 2025-07-24T10:00:00.000Z
+category: technology
+---
+
+I'm sure you have seen them before. A continuous scrolling and looping animation, containing either text or images called a marquee. It's often used to show the logos of partners or as a picture gallery. Let's recreate this animation using React and Motion One!
+
+## Initializing the project
+
+First, we will be creating our project and installing some packages.
+
+* Let's start with creating our app using NextJS by running `npx create-next-app@latest` in the terminal.
+* Next, for handling the animations we'll install the [Motion](https://motion.dev/docs/react-quick-start) library by running `npm i motion`.
+
+## Creating the layout
+
+To create the layout, let's start with creating a list of images which we'll be using for the project.
+
+```javascript
+const logos = [
+  "/marquee/android.svg",
+  "/marquee/logitech.svg",
+  "/marquee/soundcloud.svg",
+  "/marquee/stripe.svg",
+  "/marquee/twitch.svg",
+  "/marquee/unity.svg",
+];
+```
+
+Then we map over the list of images and return an image component to render those images.
+
+```javascript
+<div className="relative flex items-center h-screen bg-white w-full overflow-x-hidden flex-col">
+  <h1 className="mt-16 text-6xl md:text-9xl font-bold uppercase text-neutral-900">
+    Marquee demo
+  </h1>
+  <section className="flex flex-1 items-center">
+    <div
+      className="flex"
+    >
+      {logos.map((logo, index) => {
+        return (
+          <img
+            key={index}
+            src={logo}
+            alt="logo"
+            className="flex-shrink-0 h-16 xl:h-32 px-8 grayscale"
+            style={{ width: `${100 / logos.length}%` }}
+          />
+        );
+      })}
+    </div>
+  </section>
+</div>
+```
+
+* The width of the images is calculated by dividing the width of the container (in this case the width of the viewport) by the amount of images in the list (logos.length).
+* We use flex-shrink-0 to prevent the images from shrinking and causing it to overlap with each other.
+
+It should look like this:
+
+<BlogImage image="https://res.cloudinary.com/di81zcvbz/image/upload/v1753318585/Technology/marquee_layout_cyiult.png" alt="marquee layout" caption="The static marquee layout" />
+
+## Animating the Infinite Scrolling Marquee
+
+To create the animation, we have to start with importing the motion component from the Motion One library.
+
+```javascript
+import { motion } from "motion/react";
+```
+
+Then we change the \<div> element containing the images to a \<motion.div> component. To make the images move horizontally, we have to animate the x-axis of the motion component. At last, we make it loop continuously at a steady pace by setting the ease to linear and repeat it endlessly with repeat: Infinity.
+
+```javascript
+<motion.div
+  animate={{
+    x: ["0", "-100%"],
+  }}
+  transition={{
+    ease: "linear",
+    duration: 10,
+    repeat: Infinity,
+  }}
+  className="flex"
+>
+```
+
+* The animation starts off at x = "0" which is the default position and moves left until it reaches -100%, which means it'll move until its entire width has moved to the left at the end of the animation.
+
+<BlogImage image="https://res.cloudinary.com/di81zcvbz/image/upload/v1753321246/marquee_1_btngxi.png" alt="Layout overview" caption="An overview of the layout at the start and end of the animation. Do you spot a problem?" />
