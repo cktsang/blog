@@ -1,0 +1,167 @@
+---
+title: Infinite Marquee using React and Motion One
+date: 2025-07-24T10:00:00.000Z
+category: technology
+---
+
+I'm sure you have seen them before. A continuous scrolling and looping animation, containing either text or images called a marquee. It's often used to show the logos of partners or as a picture gallery. Let's recreate this animation using React and Motion One!
+
+## Initializing the project
+
+First, we will be creating our project and installing some packages.
+
+* Let's start with creating our app using NextJS by running `npx create-next-app@latest` in the terminal.
+* Next, for handling the animations we'll install the [Motion](https://motion.dev/docs/react-quick-start) library by running `npm i motion`.
+
+## Creating the layout
+
+To create the layout, let's start with creating a list of images which we'll be using for the project.
+
+```javascript
+const logos = [
+  "/marquee/android.svg",
+  "/marquee/logitech.svg",
+  "/marquee/soundcloud.svg",
+  "/marquee/stripe.svg",
+  "/marquee/twitch.svg",
+  "/marquee/unity.svg",
+];
+```
+
+Then we map over the list of images and return an image component to render those images.
+
+```javascript
+<div className="flex items-center h-screen bg-white w-full overflow-x-hidden flex-col">
+  <h1 className="mt-16 text-6xl md:text-9xl font-bold uppercase text-neutral-900">
+    Marquee demo
+  </h1>
+  <section className="relative flex flex-1 items-center">
+    <div
+      className="flex"
+    >
+      {logos.map((logo, index) => {
+        return (
+          <img
+            key={index}
+            src={logo}
+            alt="logo"
+            className="flex-shrink-0 h-16 xl:h-32 px-8 grayscale"
+            style={{ width: `${100 / logos.length}%` }}
+          />
+        );
+      })}
+    </div>
+  </section>
+</div>
+```
+
+* The width of the images is calculated by dividing the width of the container (in this case the width of the viewport) by the amount of images in the list with logos.length.
+* We use flex-shrink-0 to prevent the images from shrinking and causing it to overlap with each other.
+
+It should look like this:
+
+<BlogImage image="https://res.cloudinary.com/di81zcvbz/image/upload/v1753318585/Technology/marquee_layout_cyiult.png" alt="marquee layout" caption="The static marquee layout" />
+
+## Animating the Infinite Scrolling Marquee
+
+To create the animation, we have to start with importing the motion component from the Motion One library.
+
+```javascript
+import { motion } from "motion/react";
+```
+
+Then we change the `<div>` element containing the images to a `<motion.div>` component. To make the images move horizontally, we have to animate the x-axis of the motion component. At last, we make it loop continuously at a steady pace by setting the ease to linear and repeat it endlessly with repeat: Infinity.
+
+```javascript
+<motion.div
+  animate={{
+    x: ["0", "-100%"],
+  }}
+  transition={{
+    ease: "linear",
+    duration: 10,
+    repeat: Infinity,
+  }}
+  className="flex"
+>
+```
+
+* The animation starts off at x = "0" which is the default position and moves left until it reaches -100%, which means it'll move left until its entire width has moved out of the container.
+
+<BlogImage image="https://res.cloudinary.com/di81zcvbz/image/upload/v1753323213/Technology/marquee_1_vfnjzh.png" alt="Layout overview" caption="An overview of the layout at the start and end of the animation. Do you spot a problem?" />
+
+As you can see there is a big empty space left behind from the logos leaving the container when x reaches -100%. To fix this we have to duplicate our list of logos to fill in the empty gap.
+
+```javascript
+const duplicateLogos = [...logos, ...logos];
+```
+
+This works, because the width is exactly double the size of the original list of logos.
+
+<BlogImage image="https://res.cloudinary.com/di81zcvbz/image/upload/v1753323216/Technology/marquee_2_pykcma.png" alt="Marquee layout with duplicate images" caption="The duplicate images will fill in the empty space" />
+
+Let's put it all together and create the component.
+
+```javascript
+import { motion } from "motion/react";
+
+const logos = [
+  "/marquee/android.svg",
+  "/marquee/logitech.svg",
+  "/marquee/soundcloud.svg",
+  "/marquee/stripe.svg",
+  "/marquee/twitch.svg",
+  "/marquee/unity.svg",
+];
+
+function Marquee() {
+  const duplicateLogos = [...logos, ...logos];
+
+  return (
+    <div className="flex items-center h-screen bg-white w-full overflow-x-hidden flex-col">
+      <h1 className="mt-16 text-6xl md:text-9xl font-bold uppercase text-neutral-900">
+        Marquee demo
+      </h1>
+      <section className="relative flex flex-1 items-center">
+        <motion.div
+          animate={{
+            x: ["0", "-100%"],
+          }}
+          transition={{
+            ease: "linear",
+            duration: 10,
+            repeat: Infinity,
+          }}
+          className="flex"
+        >
+          {duplicateLogos.map((logo, index) => {
+            return (
+              <img
+                key={index}
+                src={logo}
+                alt="logo"
+                className="flex-shrink-0 px-8 grayscale object-fill"
+                style={{ width: `${100 / logos.length}%` }}
+              />
+            );
+          })}
+        </motion.div>
+      </section>
+    </div>
+  );
+}
+```
+
+It will look like this:
+
+<MP4Video video="https://res.cloudinary.com/di81zcvbz/video/upload/v1753323953/marquee_compressed_t8kqxd.mp4" />
+
+We can add a blur to the sides of the marquee for a subtle fade effect.
+
+```javascript
+<div className="absolute w-full h-full inset-0 bg-gradient-to-r from-white via-transparent to-white" />
+```
+
+The end result will look like this:
+
+<MP4Video video="https://res.cloudinary.com/di81zcvbz/video/upload/v1753324555/marquee_compressed_2_xy0vcw.mp4" />
