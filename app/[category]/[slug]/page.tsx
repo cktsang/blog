@@ -42,7 +42,7 @@ async function PostPage({
 }: {
   params: { category: string; slug: string };
 }) {
-  const { category, slug } = params;
+  const { category, slug } = await params;
 
   const result = await client.queries
     .post({
