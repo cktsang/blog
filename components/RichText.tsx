@@ -50,5 +50,5 @@ export const MP4Video = ({ video }: any) => {
 };
 
 export const VideoPlayer = ({ url }: any) => {
-  return url && <ReactPlayer width="100%" controls url={url} />;
+  return url && <ReactPlayer width="100%" controls oEmbedUrl={url} />;
 };
