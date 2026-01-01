@@ -34,9 +34,9 @@ export async function generateStaticParams() {
 export default async function Page({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const { category } = params;
+  const { category } = await params;
   let result: any = [];
   let mapItems: MapItem[] = [];
   let totalCount = 0;
