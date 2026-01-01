@@ -40,9 +40,9 @@ export async function generateStaticParams() {
 async function PostPage({
   params,
 }: {
-  params: { category: string; slug: string };
+  params: Promise<{ category: string; slug: string }>;
 }) {
-  const { category, slug } = params;
+  const { category, slug } = await params;
 
   const result = await client.queries
     .post({

@@ -1,8 +1,4 @@
-
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   reactStrictMode: false,
 
   images: {
@@ -12,6 +8,7 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
       },
     ],
+    qualities: [75, 100],
   },
 
   async rewrites() {
