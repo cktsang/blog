@@ -50,5 +50,17 @@ export const MP4Video = ({ video }: any) => {
 };
 
 export const VideoPlayer = ({ url }: any) => {
-  return url && <ReactPlayer width="100%" controls url={url} />;
+  return (
+    url && (
+      <div className="aspect-video w-full overflow-hidden rounded-xl">
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          controls
+          src={url}
+          className="min-w-fit"
+        />
+      </div>
+    )
+  );
 };
